@@ -13,16 +13,17 @@ export class PlanactionComponent implements OnInit {
   data: any = [];
 
   addColumn() {
-    let id = 6;
+    let id = 7;
     let newAction = { id: id, title: "json-server2", author: "typicode2" };
     this.localApi.createEmployee(newAction).subscribe(()=>{
       console.log("action added succefully!");
     })
     id ++;
+    this.loadActions();
   }
 
    // Get employees list
-   loadEmployees() {
+   loadActions() {
     return this.localApi.getActions().subscribe((data: {}) => {
       this.data = data;
     })
@@ -31,7 +32,7 @@ export class PlanactionComponent implements OnInit {
   constructor(private localApi :LocalApiService ) { }
 
   ngOnInit(): void {
-    this.loadEmployees();
+    this.loadActions();
   }
 
 
