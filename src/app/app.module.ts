@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -35,9 +38,18 @@ import { TableComponent } from './table/table.component';
     NgxChartsModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
     AppRoutingModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalApiService } from './local-api.service';
+import { FormControl } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-planaction',
@@ -8,28 +11,47 @@ import { LocalApiService } from './local-api.service';
 })
 export class PlanactionComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'title', 'author'];
+  displayedColumns: string[] = ['Mois', 'ProblemAnalyse', 'Massnahmen', 'Verantwortlich', 'Termin', 'Abarbeitungsstatus'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   data: any = [];
 
-  addColumn() {
-    let id = 7;
-    let newAction = { id: id, title: "json-server2", author: "typicode2" };
-    this.localApi.createEmployee(newAction).subscribe(()=>{
+  mois = new FormControl('');
+  problem = new FormControl('');
+  mass = new FormControl('');
+  veran = new FormControl('');
+  termin = new FormControl('');
+  abar = new FormControl('');
+
+  addRow() {
+
+
+    // let lastItemIndex = this.data.length-1; 
+    // console.log(this.data[lastItemIndex]);
+    let newAction = {
+      'id':null,
+      'Mois': this.mois.value,
+      'ProblemAnalyse': this.problem.value,
+      'Massnahmen': this.mass.value,
+      'Verantwortlich': this.veran.value,
+      'Termin': this.termin.value,
+      'Abarbeitungsstatus': this.abar.value
+    };
+
+
+    this.localApi.createAction(newAction).subscribe(() => {
       console.log("action added succefully!");
+      this.loadActions();
     })
-    id ++;
-    this.loadActions();
   }
 
-   // Get employees list
-   loadActions() {
+  // Get employees list
+  loadActions() {
     return this.localApi.getActions().subscribe((data: {}) => {
       this.data = data;
     })
   }
 
-  constructor(private localApi :LocalApiService ) { }
+  constructor(private localApi: LocalApiService) { }
 
   ngOnInit(): void {
     this.loadActions();

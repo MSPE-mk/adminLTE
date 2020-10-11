@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "mock:server": "json-server --watch localData.json"
+    "myServer": "json-server --watch localData.json"
   },
   "private": true,
   "dependencies": {

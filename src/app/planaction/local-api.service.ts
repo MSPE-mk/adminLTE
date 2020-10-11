@@ -27,7 +27,7 @@ getActions(): Observable<Action[]> {
   )
 }
 
-public createEmployee(action): Observable<Action> {
+public createAction(action): Observable<Action> {
   return this.http.post<Action>(this.apiURL + '/posts', JSON.stringify(action), this.httpOptions)
   .pipe(
     retry(1),

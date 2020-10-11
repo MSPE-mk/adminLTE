@@ -1,6 +1,11 @@
 export class Action {
-    id: number;
-    name: string;
-    email: string;
-    phone: number;
+    id:number;
+    Mois: string;
+    ProblemAnalyse: string;
+    Massnahmen: string;
+    Verantwortlich: string;
+    Termin:string;
+    Abarbeitungsstatus:string;
  }
+
+ 
