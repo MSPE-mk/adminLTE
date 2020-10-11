@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -31,6 +34,8 @@ import { TableComponent } from './table/table.component';
     FormsModule,
     NgxChartsModule,
     BrowserAnimationsModule,
+    MatTableModule,
+    HttpClientModule,
 
     AppRoutingModule
   ],

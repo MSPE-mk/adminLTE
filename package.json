@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "mock:server": "json-server --watch localData.json"
   },
   "private": true,
   "dependencies": {
@@ -17,10 +18,12 @@
     "@angular/compiler": "~10.1.4",
     "@angular/core": "~10.1.4",
     "@angular/forms": "~10.1.4",
+    "@angular/material": "^10.2.4",
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
     "@swimlane/ngx-charts": "^16.0.0",
+    "json-server": "^0.16.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
