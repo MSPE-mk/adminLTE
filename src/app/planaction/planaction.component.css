@@ -5,3 +5,15 @@ table {
   button {
     margin: 16px 8px;
   }
+
+  .title{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    line-height: 7px; 
+}
+
+.title h5 {
+    font-size: 25px;
+    font-weight: 600;
+}

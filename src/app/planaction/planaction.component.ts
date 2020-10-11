@@ -13,9 +13,12 @@ export class PlanactionComponent implements OnInit {
   data: any = [];
 
   addColumn() {
-    let newAction = { id: 4, title: "json-server2", author: "typicode2" };
-    this.localApi.createEmployee(newAction).subscribe(()=>{console.log("action added succefully!");
+    let id = 6;
+    let newAction = { id: id, title: "json-server2", author: "typicode2" };
+    this.localApi.createEmployee(newAction).subscribe(()=>{
+      console.log("action added succefully!");
     })
+    id ++;
   }
 
    // Get employees list
