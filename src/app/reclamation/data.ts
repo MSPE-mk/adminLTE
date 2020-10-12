@@ -149,7 +149,7 @@ export var nbrReclationNonResolu = [
       "Juin" : "2",
       "Juillet" : "1",
       "Aout" : "0",
-      "Septembre" : "0",
+      "Septembre" : "1",
       "Octobre" : "0",
       "Nouvembre" : "0",
       "Decembre" : "7",
