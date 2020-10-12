@@ -19,8 +19,9 @@ export class LocalApiService {
 
   constructor(private http: HttpClient) {}
 
-public// HttpClient API get() method => Fetch employees list
-getActions(): Observable<Action[]> {
+// HttpClient API get() method => Fetch employees list
+
+public getActions(): Observable<Action[]> {
   return this.http.get<Action[]>(this.apiURL + '/posts')
   .pipe(
     retry(1),
@@ -29,6 +30,13 @@ getActions(): Observable<Action[]> {
 
 public createAction(action): Observable<Action> {
   return this.http.post<Action>(this.apiURL + '/posts', JSON.stringify(action), this.httpOptions)
+  .pipe(
+    retry(1),
+  )
+}
+ // HttpClient API put() method => Update employee
+ public updateAction(id, action): Observable<Action> {
+  return this.http.put<Action>(this.apiURL + '/posts/' + id, JSON.stringify(action), this.httpOptions)
   .pipe(
     retry(1),
   )

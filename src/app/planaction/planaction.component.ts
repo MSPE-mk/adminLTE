@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
 })
 export class PlanactionComponent implements OnInit {
 
-  displayedColumns: string[] = ['Mois', 'ProblemAnalyse', 'Massnahmen', 'Verantwortlich', 'Termin', 'Abarbeitungsstatus'];
+  displayedColumns: string[] = ['Mois', 'ProblemAnalyse', 'Massnahmen', 'Verantwortlich', 'Termin', 'Abarbeitungsstatus','edit'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   data: any = [];
 
