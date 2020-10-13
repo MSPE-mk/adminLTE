@@ -76,5 +76,8 @@ export class ReclamationComponent implements OnInit {
   onResize(event) {
     this.view = [event.target.innerWidth / 1.35, 400];
 }
+exit() {
+  location.reload();
+}
 
 }
