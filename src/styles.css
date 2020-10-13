@@ -2,3 +2,12 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.indexTitle {
+    padding: 21px;
+    line-height: 7px;
+    border: black 1px bold;
+    border: 2px solid #959090;
+    border-radius: 10px;
+    margin: 10px;
+}
