@@ -20,6 +20,7 @@ export class PlanactionComponent implements OnInit {
   displayedColumns: string[] = ['Mois', 'ProblemAnalyse', 'Massnahmen', 'Verantwortlich', 'Termin', 'Abarbeitungsstatus'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   data: any = [];
+  dataCorrective: any = [];
 
   //Create form controls for modal
   mois = new FormControl('');
@@ -35,7 +36,19 @@ export class PlanactionComponent implements OnInit {
     this.loadActions();
   }
 
-  addRow() {
+   // Get action list
+   loadActions() {
+    this.localApi.getActions('/posts').subscribe((data)=>{
+      //console.log(data);
+      this.data = data; 
+    })
+    this.localApi.getActions('/comments').subscribe((data)=>{
+      //console.log(data);
+      this.dataCorrective = data; 
+    })
+  }
+
+  addRow(apiRoute) {
     let newAction = {
       'id': null,
       'Mois': this.mois.value,
@@ -46,7 +59,7 @@ export class PlanactionComponent implements OnInit {
       'Abarbeitungsstatus': this.labelPosition
     };
 
-    this.localApi.createAction(newAction).subscribe(() => {
+    this.localApi.createAction(newAction,apiRoute).subscribe(() => {
       //refresh data table and reset data forms
       this.loadActions();
       this.resetForms();
@@ -64,15 +77,9 @@ export class PlanactionComponent implements OnInit {
     this.labelPosition = '';
   }
 
-  // Get action list
-  loadActions() {
-    return this.localApi.getActions().subscribe((data: {}) => {
-      this.data = data;
-    })
-  }
   //delete Action
-  deleteAction(id) {
-    this.localApi.deleteAction(id).subscribe(() => {
+  deleteAction(id,apiRoute) {
+    this.localApi.deleteAction(id,apiRoute).subscribe(() => {
       this.loadActions();
     });
   }
@@ -81,19 +88,36 @@ export class PlanactionComponent implements OnInit {
     this.idAction = id;
   }
 
-  setProgressAction() {
-    let action = this.data[this.idAction - 1];
+  setProgressAction(apiRoute) {
+    let action: any = [];
+    if(apiRoute=='/comments'){
+       action = this.dataCorrective[this.idAction - 1];
+       console.log(action);
+       
+    }else  { action = this.data[this.idAction - 1];
+    console.log(action);}
+    
     action.Abarbeitungsstatus = this.labelPosition;
-    this.localApi.updateAction(this.idAction, action).subscribe(() => {
+    console.log(this.idAction);
+    
+    this.localApi.updateAction(this.idAction, action,apiRoute).subscribe(() => {
       //refresh data table and reset data forms
       this.loadActions();
       this.resetForms();
     });
   }
 
-  getCurrentActionInformation(id){
+  getCurrentActionInformation(id,apiRoute){
     this.idAction = id;
-    let action = this.data[this.idAction - 1];
+
+    let action: any = [];
+    if(apiRoute=='/comments'){
+       action = this.dataCorrective[this.idAction - 1];
+       console.log(action);
+       
+    }else  { action = this.data[this.idAction - 1];
+    console.log(action);}
+
     this.mois.setValue(action.Mois)   ;
     this.problem.setValue(action.ProblemAnalyse) ;
     this.mass.setValue(action.Massnahmen)  ;
@@ -102,7 +126,7 @@ export class PlanactionComponent implements OnInit {
     this.labelPosition = action.Abarbeitungsstatus ;
   }
   // update Action
-  updateAction(){
+  updateAction(apiRoute){
     let newAction = {
       'id': this.idAction,
       'Mois': this.mois.value,
@@ -112,7 +136,7 @@ export class PlanactionComponent implements OnInit {
       'Termin': this.termin.value,
       'Abarbeitungsstatus': this.labelPosition
     };
-    this.localApi.updateAction(this.idAction, newAction).subscribe(() => {
+    this.localApi.updateAction(this.idAction, newAction,apiRoute).subscribe(() => {
       //refresh data table and reset data forms
       this.loadActions();
       this.resetForms();
