@@ -272,9 +272,11 @@ export var tauxPcInfecte = [
   
   ];
 
-  export  var tableHeaders = ['rowName','Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Nouvembre', 'Decembre'];
+  export  var tableHeaders = ['rowName','Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
   export var dataTable = [
     {
+     
+
       "rowName": "Nombre de postes infectés",
       "Janvier" : "0",
       "Fevrier" : "0",
@@ -286,8 +288,10 @@ export var tauxPcInfecte = [
       "Aout" : "0",
       "Septembre" : "0",
       "Octobre" : "0",
-      "Nouvembre" : "0",
+      "Novembre" : "0",
       "Decembre" : "0",
+      "classType":"bg-success",
+
 
     },
     {
@@ -302,11 +306,13 @@ export var tauxPcInfecte = [
       "Aout" : "101",
       "Septembre" : "101",
       "Octobre" : "101",
-      "Nouvembre" : "101",
+      "Novembre" : "101",
       "Decembre" : "101",
 
     },
     {
+      "classType":"bg-success",
+
       "rowName": "Taux nbre de PC infectées %",
       "Janvier" : "0,00",
       "Fevrier" : "0,00",
@@ -318,7 +324,7 @@ export var tauxPcInfecte = [
       "Aout" : "0,00",
       "Septembre" : "0,00",
       "Octobre" : "0,00",
-      "Nouvembre" : "0,00",
+      "Novembre" : "0,00",
       "Decembre" : "0,00",
 
     },
@@ -335,7 +341,7 @@ export var tauxPcInfecte = [
       "Aout" : "0",
       "Septembre" : "0",
       "Octobre" : "0",
-      "Nouvembre" : "0",
+      "Novembre" : "0",
       "Decembre" : "0",
 
     }

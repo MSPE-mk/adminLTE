@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
     domain: ['#51bcda', '#ef8157','#aba6a6']
   };
 
+  
+
   constructor() {
     Object.assign(this, { tauxPcInfecte });
     Object.assign(this, { dataTable });

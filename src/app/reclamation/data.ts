@@ -102,7 +102,7 @@ export var nbrReclationNonResolu = [
     
   ];
 
-  export  var tableHeaders = ['rowName','Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Nouvembre', 'Decembre'];
+  export  var tableHeaders = ['rowName','Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
   export var dataTable = [
     {
       "classType":"bg-danger",
@@ -117,7 +117,7 @@ export var nbrReclationNonResolu = [
       "Aout" : "0",
       "Septembre" : "0",
       "Octobre" : "0",
-      "Nouvembre" : "0",
+      "Novembre" : "0",
       "Decembre" : "0",
 
     },
@@ -134,7 +134,7 @@ export var nbrReclationNonResolu = [
       "Aout" : "0",
       "Septembre" : "0",
       "Octobre" : "0",
-      "Nouvembre" : "0",
+      "Novembre" : "0",
       "Decembre" : "0",
 
     },
@@ -151,7 +151,7 @@ export var nbrReclationNonResolu = [
       "Aout" : "0",
       "Septembre" : "1",
       "Octobre" : "0",
-      "Nouvembre" : "0",
+      "Novembre" : "0",
       "Decembre" : "7",
     },
   ]; 
@@ -201,7 +201,7 @@ export var nbrReclationNonResolu = [
           "value": 0.07
         },
         {
-          "name": "Nou/20",
+          "name": "Nov/20",
           "value": 0.07
         },
         {
@@ -255,7 +255,7 @@ export var nbrReclationNonResolu = [
           "value": 0
         },
         {
-          "name": "Nou/20",
+          "name": "Nov/20",
           "value": 0
         },
         {
@@ -308,7 +308,7 @@ export var nbrReclationNonResolu = [
           "value": 5
         },
         {
-          "name": "Nou/20",
+          "name": "Nov/20",
           "value": 5
         },
         {

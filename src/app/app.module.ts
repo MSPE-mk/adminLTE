@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
+
 
 
 
@@ -21,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { PlanactionComponent } from './planaction/planaction.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { TableComponent } from './table/table.component';
+import { CalenderComponent } from './calender/calender.component';
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { TableComponent } from './table/table.component';
     SidebarComponent,
     PlanactionComponent,
     ReclamationComponent,
-    TableComponent
+    TableComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,7 @@ import { TableComponent } from './table/table.component';
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
