@@ -34,6 +34,14 @@ public createAction(action): Observable<Action> {
     retry(1),
   )
 }
+
+// HttpClient API delete() method => Delete employee
+deleteAction(id){
+  return this.http.delete<Action>(this.apiURL + '/posts/' + id, this.httpOptions)
+  .pipe(
+    retry(1),
+  )
+}
  // HttpClient API put() method => Update employee
  public updateAction(id, action): Observable<Action> {
   return this.http.put<Action>(this.apiURL + '/posts/' + id, JSON.stringify(action), this.httpOptions)

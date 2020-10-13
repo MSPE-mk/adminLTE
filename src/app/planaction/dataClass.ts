@@ -6,6 +6,7 @@ export class Action {
     Verantwortlich: string;
     Termin:string;
     Abarbeitungsstatus:string;
+    edit:string;
  }
 
  

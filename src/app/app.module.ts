@@ -6,6 +6,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -41,6 +42,7 @@ import { TableComponent } from './table/table.component';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
+    MatRadioModule,
     HttpClientModule,
     ReactiveFormsModule,
 
