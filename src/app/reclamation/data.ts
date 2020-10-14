@@ -85,7 +85,7 @@ export var nbrReclationNonResolu = [
     },
     {
       "name": "Sep/20",
-      "value": 0
+      "value": 1
     },
     {
       "name": "Okt/20",
