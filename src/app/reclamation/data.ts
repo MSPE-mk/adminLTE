@@ -105,7 +105,7 @@ export var nbrReclationNonResolu = [
   export  var tableHeaders = ['rowName','Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
   export var dataTable = [
     {
-      "classType":"bg-danger",
+      "classType":"bg-primary",
       "rowName": "Nombre des Réclamtions Non résolues",
       "Janvier" : "0",
       "Fevrier" : "0",
@@ -122,7 +122,7 @@ export var nbrReclationNonResolu = [
 
     },
     {
-      "classType":"bg-primary",
+      "classType":"bg-danger",
       "rowName": "Objectifs",
       "Janvier" : "0",
       "Fevrier" : "0",

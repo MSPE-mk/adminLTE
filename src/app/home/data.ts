@@ -276,7 +276,6 @@ export var tauxPcInfecte = [
   export var dataTable = [
     {
      
-
       "rowName": "Nombre de postes infectés",
       "Janvier" : "0",
       "Fevrier" : "0",
@@ -290,9 +289,6 @@ export var tauxPcInfecte = [
       "Octobre" : "0",
       "Novembre" : "0",
       "Decembre" : "0",
-      "classType":"bg-success",
-
-
     },
     {
       "rowName": "Nombre de Pc",
@@ -311,8 +307,7 @@ export var tauxPcInfecte = [
 
     },
     {
-      "classType":"bg-success",
-
+      "classType":"bg-primary",
       "rowName": "Taux nbre de PC infectées %",
       "Janvier" : "0,00",
       "Fevrier" : "0,00",
@@ -329,7 +324,7 @@ export var tauxPcInfecte = [
 
     },
     {
-      "classType":"bg-primary",
+      "classType":"bg-danger",
       "rowName": "Objectifs",
       "Janvier" : "0",
       "Fevrier" : "0",

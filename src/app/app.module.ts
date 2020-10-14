@@ -24,7 +24,9 @@ import { PlanactionComponent } from './planaction/planaction.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { TableComponent } from './table/table.component';
 import { CalenderComponent } from './calender/calender.component';
-
+import { LoginComponent } from './login/login.component';
+import { from } from 'rxjs';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,10 @@ import { CalenderComponent } from './calender/calender.component';
     SidebarComponent,
     PlanactionComponent,
     ReclamationComponent,
+    LoginComponent,
     TableComponent,
-    CalenderComponent
+    CalenderComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

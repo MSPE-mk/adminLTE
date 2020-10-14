@@ -51,3 +51,70 @@ a:not([href]) {
 .card .card-body {
   padding: 20px 29px 68px 23px;
 }
+
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding: 8px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+
+@media screen and (max-width: 960px) {
+  .table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .table caption {
+    font-size: 1em;
+  }
+  
+  /*  Enable this to hide header
+  .mat-table .mat-header-cell {
+    
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  */
+  .table .tr {
+    border-bottom: 5px solid #ddd;
+    display: block;
+  }
+  /*
+  .mat-table .mat-row:nth-child(even) {background: #CCC}
+  .mat-table .mat-row:nth-child(odd) {background: #FFF}
+  */
+  .table .th {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    height:30px;
+    margin-bottom: 4%;
+  }
+  .table .td:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+    
+    font-size: .85em;
+  }
+  .table .td:last-child {
+    border-bottom: 0;
+  }
+    .table .td:first-child {
+    margin-top: 4%;
+  }
+}

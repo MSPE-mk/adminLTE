@@ -11,3 +11,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-radius: 10px;
     margin: 10px;
 }
+
+.table td, .table th {
+    /* padding: 0.5rem; */
+    padding-bottom: 15px;
+    padding-top: 15px;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table td, .table th {
+    /* padding: 0.5rem; */
+    padding-bottom: 15px;
+    padding-top: 15px;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+}
