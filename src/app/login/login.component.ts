@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  invalid= false;
   submitted = false;
   loginForm: FormGroup;
   constructor(
@@ -33,6 +34,13 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    if ((this.f.username.value!="WG0011")||(this.f.password.value!="dash2020")){
+      console.log(this.f.username);
+      
+      this.invalid=true;
+      return;
+    }
+   
     this.router.navigate(['dashboard']);
   }
 
