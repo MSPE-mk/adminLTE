@@ -152,7 +152,7 @@ export var nbrReclationNonResolu = [
       "Septembre" : "1",
       "Octobre" : "0",
       "Novembre" : "0",
-      "Decembre" : "7",
+      "Decembre" : "0",
     },
   ]; 
 
