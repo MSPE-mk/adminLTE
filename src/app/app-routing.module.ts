@@ -11,10 +11,9 @@ import { TableComponent } from './table/table.component';
 
 
 const routes: Routes = [
- 
+
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  {path:"**", component : Page404Component},
   // redirect to `first-component`
   {
     path: 'dashboard',
@@ -26,9 +25,10 @@ const routes: Routes = [
       { path: 'reclam', component: ReclamationComponent },
       { path: 'table', component: TableComponent },
       { path: 'calender', component: CalenderComponent },
-      
+
     ],
   },
+  { path: "**", component: Page404Component },
 
 ];
 
