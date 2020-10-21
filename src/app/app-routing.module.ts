@@ -4,6 +4,7 @@ import { CalenderComponent } from './calender/calender.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { Page404Component } from './page404/page404.component';
 import { PlanactionComponent } from './planaction/planaction.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 import { TableComponent } from './table/table.component';
@@ -12,8 +13,9 @@ import { TableComponent } from './table/table.component';
 const routes: Routes = [
  
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // redirect to `first-component`
-
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {path:"**", component : Page404Component},
+  // redirect to `first-component`
   {
     path: 'dashboard',
     component: LayoutComponent, // this is the component with the <router-outlet> in the template
@@ -24,6 +26,7 @@ const routes: Routes = [
       { path: 'reclam', component: ReclamationComponent },
       { path: 'table', component: TableComponent },
       { path: 'calender', component: CalenderComponent },
+      
     ],
   },
 

@@ -92,7 +92,9 @@
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
-            "scripts": [ "../node_modules/jquery/dist/jquery.min.js"]
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.min.js"
+            ]
           }
         },
         "lint": {
@@ -123,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "adminlte"
+  "defaultProject": "adminlte",
+  "cli": {
+    "analytics": "b9395844-5ded-4ac9-947e-4509d2627bb5"
+  }
 }
