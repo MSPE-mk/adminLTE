@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
@@ -9,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
+=======
+>>>>>>> parent of 7e8bf18... hafedh 0.1
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +38,7 @@ import { TableComponent } from './table/table.component';
   imports: [
     BrowserModule,
     FormsModule,
+<<<<<<< HEAD
     NgxChartsModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -43,6 +47,8 @@ import { TableComponent } from './table/table.component';
     MatFormFieldModule,
     HttpClientModule,
     ReactiveFormsModule,
+=======
+>>>>>>> parent of 7e8bf18... hafedh 0.1
 
     AppRoutingModule
   ],
