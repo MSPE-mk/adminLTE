@@ -9,8 +9,8 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LocalApiService {
-  apiURL = 'https://lteadmin.herokuapp.com';
-  //apiURL ='http://localhost:3000';
+  //apiURL = 'https://lteadmin.herokuapp.com';
+  apiURL ='http://localhost:5000';
    // Http Options
    httpOptions = {
     headers: new HttpHeaders({
@@ -30,7 +30,7 @@ public getActions(apiRoute): Observable<Action[]> {
 }
 
 public createAction(action,apiRoute): Observable<Action> {
-  return this.http.post<Action>(this.apiURL + apiRoute, JSON.stringify(action), this.httpOptions)
+  return this.http.post<Action>(this.apiURL + apiRoute + '/add_post', JSON.stringify(action), this.httpOptions)
   .pipe(
     retry(1),
   )
@@ -38,14 +38,14 @@ public createAction(action,apiRoute): Observable<Action> {
 
 // HttpClient API delete() method => Delete employee
 deleteAction(id,apiRoute){
-  return this.http.delete<Action>(this.apiURL + apiRoute +'/' + id, this.httpOptions)
+  return this.http.delete<Action>(this.apiURL + apiRoute +'/delete/' + id, this.httpOptions)
   .pipe(
     retry(1),
   )
 }
  // HttpClient API put() method => Update employee
  public updateAction(id, action,apiRoute): Observable<Action> {
-  return this.http.put<Action>(this.apiURL + apiRoute +'/'+ id, JSON.stringify(action), this.httpOptions)
+  return this.http.put<Action>(this.apiURL + apiRoute +'/update_post/'+ id, JSON.stringify(action), this.httpOptions)
   .pipe(
     retry(1),
   )
