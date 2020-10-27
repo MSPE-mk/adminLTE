@@ -38,11 +38,11 @@ export class PlanactionComponent implements OnInit {
 
    // Get action list
    loadActions() {
-    this.localApi.getActions('/posts').subscribe((data)=>{
+    this.localApi.getActions('preventive').subscribe((data)=>{
       //console.log(data);
       this.data = data; 
     })
-    this.localApi.getActions('/comments').subscribe((data)=>{
+    this.localApi.getActions('corrective').subscribe((data)=>{
       //console.log(data);
       this.dataCorrective = data; 
     })
@@ -61,6 +61,7 @@ export class PlanactionComponent implements OnInit {
 
     this.localApi.createAction(newAction,apiRoute).subscribe(() => {
       //refresh data table and reset data forms
+      this.resetForms();
       this.loadActions();
       this.resetForms();
     })
@@ -90,7 +91,7 @@ export class PlanactionComponent implements OnInit {
 
   setProgressAction(apiRoute) {
     let action: any = [];
-    if(apiRoute=='/comments'){
+    if(apiRoute=='/update_action'){
        action = this.dataCorrective[this.idAction - 1];
        console.log(action);
        
@@ -109,14 +110,15 @@ export class PlanactionComponent implements OnInit {
 
   getCurrentActionInformation(id,apiRoute){
     this.idAction = id;
-
     let action: any = [];
-    if(apiRoute=='/comments'){
+    if(apiRoute=='/actions'){
        action = this.dataCorrective[this.idAction - 1];
        console.log(action);
        
-    }else  { action = this.data[this.idAction - 1];
-    console.log(action);}
+    }else  {
+       action = this.data[this.idAction - 1];
+        console.log(action);
+      }
 
     this.mois.setValue(action.Mois)   ;
     this.problem.setValue(action.ProblemAnalyse) ;
@@ -138,6 +140,8 @@ export class PlanactionComponent implements OnInit {
     };
     this.localApi.updateAction(this.idAction, newAction,apiRoute).subscribe(() => {
       //refresh data table and reset data forms
+      this.resetForms();
+
       this.loadActions();
       this.resetForms();
     });

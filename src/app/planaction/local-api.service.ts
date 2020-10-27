@@ -22,32 +22,37 @@ export class LocalApiService {
 
 // HttpClient API get() method => Fetch employees list
 
-public getActions(apiRoute): Observable<Action[]> {
-  return this.http.get<Action[]>(this.apiURL + apiRoute)
+public getActions(type): Observable<Action[]> {
+  console.log(JSON.stringify(type));
+  let uri = {
+    url:type
+  }
+  
+  return this.http.post<Action[]>(this.apiURL+'/actions' ,JSON.stringify(uri), this.httpOptions)
   .pipe(
-    retry(1),
+  //  retry(1),
   )
 }
 
 public createAction(action,apiRoute): Observable<Action> {
-  return this.http.post<Action>(this.apiURL + apiRoute + '/add_post', JSON.stringify(action), this.httpOptions)
+  return this.http.post<Action>(this.apiURL + apiRoute + '/add', JSON.stringify(action), this.httpOptions)
   .pipe(
-    retry(1),
+ //   retry(1),
   )
 }
 
 // HttpClient API delete() method => Delete employee
 deleteAction(id,apiRoute){
-  return this.http.delete<Action>(this.apiURL + apiRoute +'/delete/' + id, this.httpOptions)
+  return this.http.delete<Action>(this.apiURL + apiRoute+'/actions/delete/' + id, this.httpOptions)
   .pipe(
-    retry(1),
+  //  retry(1),
   )
 }
  // HttpClient API put() method => Update employee
  public updateAction(id, action,apiRoute): Observable<Action> {
-  return this.http.put<Action>(this.apiURL + apiRoute +'/update_post/'+ id, JSON.stringify(action), this.httpOptions)
+  return this.http.put<Action>(this.apiURL + apiRoute +'/update_action/'+ id, JSON.stringify(action), this.httpOptions)
   .pipe(
-    retry(1),
+//    retry(1),
   )
 }  
 }
