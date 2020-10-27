@@ -2,22 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { LocalApiService } from './local-api.service';
 import { FormControl } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-planaction',
   templateUrl: './planaction.component.html',
-  styleUrls: ['./planaction.component.css']
+  styleUrls: ['./planaction.component.css'],
 })
 export class PlanactionComponent implements OnInit {
-
   checked = false;
   indeterminate = false;
   labelPosition: '';
   disabled = false;
   idAction: number;
   //set table haders names and data for our data Table
-  displayedColumns: string[] = ['Mois', 'ProblemAnalyse', 'Massnahmen', 'Verantwortlich', 'Termin', 'Abarbeitungsstatus'];
+  displayedColumns: string[] = [
+    'Mois',
+    'ProblemAnalyse',
+    'Massnahmen',
+    'Verantwortlich',
+    'Termin',
+    'Abarbeitungsstatus',
+  ];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   data: any = [];
   dataCorrective: any = [];
@@ -30,41 +34,41 @@ export class PlanactionComponent implements OnInit {
   termin = new FormControl('');
   abar = new FormControl('');
 
-  constructor(private localApi: LocalApiService) { }
+  constructor(private localApi: LocalApiService) {}
 
   ngOnInit(): void {
     this.loadActions();
   }
 
-   // Get action list
-   loadActions() {
-    this.localApi.getActions('preventive').subscribe((data)=>{
+  // Get action list
+  loadActions() {
+    this.localApi.getActions('preventive').subscribe((data) => {
       //console.log(data);
-      this.data = data; 
-    })
-    this.localApi.getActions('corrective').subscribe((data)=>{
+      this.data = data;
+    });
+    this.localApi.getActions('corrective').subscribe((data) => {
       //console.log(data);
-      this.dataCorrective = data; 
-    })
+      this.dataCorrective = data;
+    });
   }
 
   addRow(apiRoute) {
     let newAction = {
-      'id': null,
-      'Mois': this.mois.value,
-      'ProblemAnalyse': this.problem.value,
-      'Massnahmen': this.mass.value,
-      'Verantwortlich': this.veran.value,
-      'Termin': this.termin.value,
-      'Abarbeitungsstatus': this.labelPosition
+      id: null,
+      Mois: this.mois.value,
+      ProblemAnalyse: this.problem.value,
+      Massnahmen: this.mass.value,
+      Verantwortlich: this.veran.value,
+      Termin: this.termin.value,
+      Abarbeitungsstatus: this.labelPosition,
     };
 
-    this.localApi.createAction(newAction,apiRoute).subscribe(() => {
+    this.localApi.createAction(newAction, apiRoute).subscribe(() => {
       //refresh data table and reset data forms
       this.resetForms();
       this.loadActions();
       this.resetForms();
-    })
+    });
   }
   // reset all formControl
   resetForms() {
@@ -79,8 +83,8 @@ export class PlanactionComponent implements OnInit {
   }
 
   //delete Action
-  deleteAction(id,apiRoute) {
-    this.localApi.deleteAction(id,apiRoute).subscribe(() => {
+  deleteAction(id, apiRoute) {
+    this.localApi.deleteAction(id, apiRoute).subscribe(() => {
       this.loadActions();
     });
   }
@@ -91,61 +95,63 @@ export class PlanactionComponent implements OnInit {
 
   setProgressAction(apiRoute) {
     let action: any = [];
-    if(apiRoute=='/update_action'){
-       action = this.dataCorrective[this.idAction - 1];
-       console.log(action);
-       
-    }else  { action = this.data[this.idAction - 1];
-    console.log(action);}
-    
+    if (apiRoute == '/update_action') {
+      action = this.dataCorrective[this.idAction - 1];
+      console.log(action);
+    } else {
+      action = this.data[this.idAction - 1];
+      console.log(action);
+    }
+
     action.Abarbeitungsstatus = this.labelPosition;
     console.log(this.idAction);
-    
-    this.localApi.updateAction(this.idAction, action,apiRoute).subscribe(() => {
-      //refresh data table and reset data forms
-      this.loadActions();
-      this.resetForms();
-    });
+
+    this.localApi
+      .updateAction(this.idAction, action, apiRoute)
+      .subscribe(() => {
+        //refresh data table and reset data forms
+        this.loadActions();
+        this.resetForms();
+      });
   }
 
-  getCurrentActionInformation(id,apiRoute){
+  getCurrentActionInformation(id, apiRoute) {
     this.idAction = id;
     let action: any = [];
-    if(apiRoute=='/actions'){
-       action = this.dataCorrective[this.idAction - 1];
-       console.log(action);
-       
-    }else  {
-       action = this.data[this.idAction - 1];
-        console.log(action);
-      }
+    if (apiRoute == '/actions') {
+      action = this.dataCorrective[this.idAction - 1];
+      console.log(action);
+    } else {
+      action = this.data[this.idAction - 1];
+      console.log(action);
+    }
 
-    this.mois.setValue(action.Mois)   ;
-    this.problem.setValue(action.ProblemAnalyse) ;
-    this.mass.setValue(action.Massnahmen)  ;
-    this.termin.setValue(action.Termin)  ;
+    this.mois.setValue(action.Mois);
+    this.problem.setValue(action.ProblemAnalyse);
+    this.mass.setValue(action.Massnahmen);
+    this.termin.setValue(action.Termin);
     this.veran.setValue(action.Verantwortlich);
-    this.labelPosition = action.Abarbeitungsstatus ;
+    this.labelPosition = action.Abarbeitungsstatus;
   }
   // update Action
-  updateAction(apiRoute){
+  updateAction(apiRoute) {
     let newAction = {
-      'id': this.idAction,
-      'Mois': this.mois.value,
-      'ProblemAnalyse': this.problem.value,
-      'Massnahmen': this.mass.value,
-      'Verantwortlich': this.veran.value,
-      'Termin': this.termin.value,
-      'Abarbeitungsstatus': this.labelPosition
+      id: this.idAction,
+      Mois: this.mois.value,
+      ProblemAnalyse: this.problem.value,
+      Massnahmen: this.mass.value,
+      Verantwortlich: this.veran.value,
+      Termin: this.termin.value,
+      Abarbeitungsstatus: this.labelPosition,
     };
-    this.localApi.updateAction(this.idAction, newAction,apiRoute).subscribe(() => {
-      //refresh data table and reset data forms
-      this.resetForms();
+    this.localApi
+      .updateAction(this.idAction, newAction, apiRoute)
+      .subscribe(() => {
+        //refresh data table and reset data forms
+        this.resetForms();
 
-      this.loadActions();
-      this.resetForms();
-    });
-    
+        this.loadActions();
+        this.resetForms();
+      });
   }
-
 }
