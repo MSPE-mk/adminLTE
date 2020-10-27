@@ -65,7 +65,6 @@ export class PlanactionComponent implements OnInit {
 
     this.localApi.createAction(newAction, apiRoute).subscribe(() => {
       //refresh data table and reset data forms
-      this.resetForms();
       this.loadActions();
       this.resetForms();
     });
@@ -94,12 +93,24 @@ export class PlanactionComponent implements OnInit {
   }
 
   setProgressAction(apiRoute) {
+    function findWithAttr(array, attr, value) {
+      for (var i = 0; i < array.length; i += 1) {
+        if (array[i][attr] === value) {
+          return array[i];
+        }
+      }
+    }
+
     let action: any = [];
-    if (apiRoute == '/update_action') {
-      action = this.dataCorrective[this.idAction - 1];
+    if (apiRoute == '/corrective') {
+      //action = this.dataCorrective[this.idAction - 1];
+      console.log(findWithAttr(this.dataCorrective, 'id', this.idAction));
+      action = findWithAttr(this.dataCorrective, 'id', this.idAction);
       console.log(action);
     } else {
-      action = this.data[this.idAction - 1];
+      //action = this.data[this.idAction - 1];
+      console.log(findWithAttr(this.data, 'id', this.idAction));
+      action = findWithAttr(this.data, 'id', this.idAction);
       console.log(action);
     }
 
@@ -118,12 +129,22 @@ export class PlanactionComponent implements OnInit {
   getCurrentActionInformation(id, apiRoute) {
     this.idAction = id;
     let action: any = [];
-    if (apiRoute == '/actions') {
-      action = this.dataCorrective[this.idAction - 1];
-      console.log(action);
+
+    function findWithAttr(array, attr, value) {
+      for (var i = 0; i < array.length; i += 1) {
+        if (array[i][attr] === value) {
+          return array[i];
+        }
+      }
+    }
+
+    if (apiRoute == '/corrective') {
+      //action = this.dataCorrective[this.idAction - 1];
+      console.log(findWithAttr(this.dataCorrective, 'id', this.idAction));
+      action = findWithAttr(this.dataCorrective, 'id', this.idAction);
     } else {
-      action = this.data[this.idAction - 1];
-      console.log(action);
+      //action = this.data[this.idAction - 1];
+      action = findWithAttr(this.data, 'id', this.idAction);
     }
 
     this.mois.setValue(action.Mois);
@@ -148,7 +169,6 @@ export class PlanactionComponent implements OnInit {
       .updateAction(this.idAction, newAction, apiRoute)
       .subscribe(() => {
         //refresh data table and reset data forms
-        this.resetForms();
 
         this.loadActions();
         this.resetForms();
