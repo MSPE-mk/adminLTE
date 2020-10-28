@@ -114,16 +114,13 @@ export class PlanactionComponent implements OnInit {
       console.log(action);
     }
 
-    console.log(this.dataCorrective);
-
-    console.log(action);
     console.log(this.labelPosition);
 
     action.Abarbeitungsstatus = this.labelPosition;
-    console.log(this.idAction);
+    console.log(action);
 
     this.localApi
-      .updateAction(this.idAction, action, 'actions')
+      .updateAction(this.idAction, action, '/actions')
       .subscribe(() => {
         //refresh data table and reset data forms
         this.loadActions();
