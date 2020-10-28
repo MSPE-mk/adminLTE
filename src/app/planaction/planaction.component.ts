@@ -103,15 +103,9 @@ export class PlanactionComponent implements OnInit {
 
     let action: any = [];
     if (apiRoute == '/corrective') {
-      //action = this.dataCorrective[this.idAction - 1];
-      //console.log(findWithAttr(this.dataCorrective, 'id', this.idAction));
       action = findWithAttr(this.dataCorrective, 'id', this.idAction);
-      console.log(action);
     } else {
-      //action = this.data[this.idAction - 1];
-      //console.log(findWithAttr(this.data, 'id', this.idAction));
       action = findWithAttr(this.data, 'id', this.idAction);
-      console.log(action);
     }
 
     console.log(this.labelPosition);
