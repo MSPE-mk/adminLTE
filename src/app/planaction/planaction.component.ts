@@ -93,6 +93,7 @@ export class PlanactionComponent implements OnInit {
   }
 
   setProgressAction(apiRoute) {
+    // function to extract action by it's id
     function findWithAttr(array, attr, value) {
       for (var i = 0; i < array.length; i += 1) {
         if (array[i][attr] === value) {
@@ -125,7 +126,7 @@ export class PlanactionComponent implements OnInit {
   getCurrentActionInformation(id, apiRoute) {
     this.idAction = id;
     let action: any = [];
-
+    // function to extract action by it's id
     function findWithAttr(array, attr, value) {
       for (var i = 0; i < array.length; i += 1) {
         if (array[i][attr] === value) {
