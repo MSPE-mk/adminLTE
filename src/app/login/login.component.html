@@ -19,15 +19,15 @@
             name="username"
             id="username"
           />
-          <div *ngIf="f.username.touched && f.username.invalid">
+          <div *ngIf="username.touched && username.invalid">
             <br />
             <br />
 
-            <small *ngIf="f.username.errors.required" class="text-danger">
-              Usename is required
+            <small *ngIf="username.errors.required" class="text-danger">
+              Username is required
             </small>
             <br />
-            <small *ngIf="f.username.errors.email" class="text-danger">
+            <small *ngIf="username.errors.email" class="text-danger">
               Invalid Username
             </small>
           </div>
@@ -44,11 +44,11 @@
             formControlName="password"
             [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
           />
-          <div *ngIf="f.password.touched && f.password.invalid">
+          <div *ngIf="password.touched && password.invalid">
             <br />
             <br />
 
-            <small *ngIf="f.password.errors.required" class="text-danger">
+            <small *ngIf="password.errors.required" class="text-danger">
               Password is required
             </small>
           </div>

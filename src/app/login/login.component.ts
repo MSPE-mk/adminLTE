@@ -16,20 +16,28 @@ export class LoginComponent implements OnInit {
   invalid = false;
   submitted = false;
   loginForm: FormGroup;
+
   constructor(private formBuilder: FormBuilder, private router: Router) {
     let formControls = {
       username: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
     };
 
     this.loginForm = this.formBuilder.group(formControls);
   }
 
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
+  get username() {
+    return this.loginForm.get('username');
   }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+  ngOnInit(): void {}
 
   // convenience getter for easy access to form fields
   get f() {
