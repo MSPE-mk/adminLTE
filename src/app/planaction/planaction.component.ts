@@ -109,10 +109,8 @@ export class PlanactionComponent implements OnInit {
       action = findWithAttr(this.data, 'id', this.idAction);
     }
 
-    console.log(this.labelPosition);
-
     action.Abarbeitungsstatus = this.labelPosition;
-    console.log(action);
+    console.log('action updated successfully');
 
     this.localApi
       .updateAction(this.idAction, action, '/actions')

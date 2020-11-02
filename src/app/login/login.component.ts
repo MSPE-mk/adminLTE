@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 import {
   FormBuilder,
   FormControl,
@@ -17,9 +18,13 @@ export class LoginComponent implements OnInit {
   submitted = false;
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private loginService: LoginService
+  ) {
     let formControls = {
-      username: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -29,8 +34,8 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group(formControls);
   }
 
-  get username() {
-    return this.loginForm.get('username');
+  get email() {
+    return this.loginForm.get('email');
   }
 
   get password() {
@@ -51,16 +56,33 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    if (
-      this.f.username.value != 'WG0011' ||
-      this.f.password.value != 'dash2020'
-    ) {
-      console.log(this.f.username);
+    if (this.f.email.value != 'WG0011' || this.f.password.value != 'dash2020') {
+      console.log(this.f.email);
 
       this.invalid = true;
       return;
     }
+  }
 
-    this.router.navigate(['dashboard']);
+  login() {
+    let data = this.loginForm.value;
+    // let user = new User(data.email, data.password);
+    console.log(data);
+    let user = this.loginService.getUser(data.email).subscribe(
+      (res) => {
+        if (res.length == 0) {
+          console.log('there is no user with the email: ' + data.email);
+        } else if (res[0].Password == data.password) {
+          let token = res.token;
+          localStorage.setItem('myToken', token);
+          this.router.navigate(['dashboard']);
+        } else {
+          console.log('Password or Email are invalid');
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

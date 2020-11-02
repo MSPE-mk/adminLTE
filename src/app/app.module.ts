@@ -1,18 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
-import {MatButtonModule} from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
 
-
-
+import {
+  HashLocationStrategy,
+  Location,
+  LocationStrategy,
+} from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +31,12 @@ import { from } from 'rxjs';
 import { LayoutComponent } from './layout/layout.component';
 import { Page404Component } from './page404/page404.component';
 
+import {
+  ToastrModule,
+  ToastNoAnimation,
+  ToastNoAnimationModule,
+} from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +49,7 @@ import { Page404Component } from './page404/page404.component';
     TableComponent,
     CalenderComponent,
     LayoutComponent,
-    Page404Component
+    Page404Component,
   ],
   imports: [
     BrowserModule,
@@ -56,14 +64,11 @@ import { Page404Component } from './page404/page404.component';
     HttpClientModule,
     ReactiveFormsModule,
 
-    AppRoutingModule
+    AppRoutingModule,
+    ToastNoAnimationModule.forRoot(),
   ],
-  exports: [
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-  bootstrap: [AppComponent]
+  exports: [MatButtonModule, MatFormFieldModule, MatInputModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

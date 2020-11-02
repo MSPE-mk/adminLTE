@@ -2,7 +2,7 @@
 <div class="container">
   <div class="img"></div>
   <div class="login-content">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <img src="assets/img/avatar.svg" />
       <h2 class="title">S'identifier</h2>
 
@@ -13,22 +13,22 @@
         <div class="div">
           <input
             type="text"
-            placeholder="username"
-            formControlName="username"
-            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
-            name="username"
-            id="username"
+            placeholder="email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            name="email"
+            id="email"
           />
-          <div *ngIf="username.touched && username.invalid">
+          <div *ngIf="email.touched && email.invalid">
             <br />
             <br />
 
-            <small *ngIf="username.errors.required" class="text-danger">
-              Username is required
+            <small *ngIf="email.errors.required" class="text-danger">
+              Email is required
             </small>
             <br />
-            <small *ngIf="username.errors.email" class="text-danger">
-              Invalid Username
+            <small *ngIf="email.errors.email" class="text-danger">
+              Invalid Email
             </small>
           </div>
         </div>

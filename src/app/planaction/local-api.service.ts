@@ -8,7 +8,6 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class LocalApiService {
-  //apiURL = 'https://lteadmin.herokuapp.com';
   apiURL = 'http://localhost:5000';
   // Http Options
   httpOptions = {
