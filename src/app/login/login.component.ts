@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { ToastrService } from 'ngx-toastr';
+
 import {
   FormBuilder,
   FormControl,
@@ -21,7 +23,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private toastr: ToastrService
   ) {
     let formControls = {
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -49,21 +52,6 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
-    if (this.f.email.value != 'WG0011' || this.f.password.value != 'dash2020') {
-      console.log(this.f.email);
-
-      this.invalid = true;
-      return;
-    }
-  }
-
   login() {
     let data = this.loginForm.value;
     // let user = new User(data.email, data.password);
@@ -72,12 +60,16 @@ export class LoginComponent implements OnInit {
       (res) => {
         if (res.length == 0) {
           console.log('there is no user with the email: ' + data.email);
+          this.toastr.error('Email or Password are invalid');
         } else if (res[0].Password == data.password) {
           let token = res.token;
           localStorage.setItem('myToken', token);
+          this.toastr.success('Connection succeded');
+
           this.router.navigate(['dashboard']);
         } else {
-          console.log('Password or Email are invalid');
+          console.log('Email or Password are invalid');
+          this.toastr.error('Email or Password are invalid');
         }
       },
       (err) => {
