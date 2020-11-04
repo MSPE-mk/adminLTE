@@ -23,4 +23,13 @@ export class LoginService {
   getUser(email: String) {
     return this.http.get<any>(this.apiURL + '/users/' + email);
   }
+
+  isLoggedIn() {
+    let token = localStorage.getItem('myToken');
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
