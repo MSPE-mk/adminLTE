@@ -3,14 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { ToastrService } from 'ngx-toastr';
 
-//declare function require(name: string);
-//const bcrypt = require('../../../node_modules/bcrypt');
-//import * as bcrypt from '../../../node_modules/bcrypt';
-//const bcrypt = require('bcrypt');
-//const bcrypt = require('bcrypt');
-
-//import * as bcrypt from 'bcrypt';
-//import * as bcrypt from '../../../node_modules/bcrypt';
+// import bcrypt librairie
 import * as bcrypt from 'bcryptjs';
 
 import {
@@ -55,7 +48,13 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let isLoggedIn = this.loginService.isLoggedIn();
+
+    if (isLoggedIn) {
+      this.router.navigate(['/dashboard']);
+    }
+  }
 
   // convenience getter for easy access to form fields
   get f() {
@@ -64,24 +63,18 @@ export class LoginComponent implements OnInit {
 
   login() {
     let data = this.loginForm.value;
-    // let user = new User(data.email, data.password);
-    console.log(data);
-    let user = this.loginService.getUser(data.email).subscribe(
+    let user = this.loginService.getUser(data).subscribe(
       (res) => {
-        if (res.length == 0) {
+        if (res.token == '') {
           this.toastr.error('Email or Password are invalid');
-        } else if (bcrypt.compareSync(data.password, res[0].Password)) {
-          console.log(bcrypt.compareSync(data.password, res[0].Password));
-
-          /*} else if (data.password == res[0].Password) {*/
+        } else {
+          console.log(res);
           let token = res.token;
-          console.log(token);
+
           localStorage.setItem('myToken', token);
           this.toastr.success('Connection succeded');
 
           this.router.navigate(['dashboard']);
-        } else {
-          this.toastr.error('Email or Password are invalid');
         }
       },
       (err) => {

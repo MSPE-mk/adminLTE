@@ -20,8 +20,12 @@ export class LoginService {
 
   // HttpClient API get() method => Fetch One user
 
-  getUser(email: String) {
-    return this.http.get<any>(this.apiURL + '/users/' + email);
+  getUser(data) {
+    return this.http.post<any>(
+      this.apiURL + '/users/get_user/',
+      JSON.stringify(data),
+      this.httpOptions
+    );
   }
 
   isLoggedIn() {

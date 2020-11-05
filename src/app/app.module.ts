@@ -7,7 +7,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpInterceptor,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import {
@@ -36,6 +40,7 @@ import {
   ToastNoAnimation,
   ToastNoAnimationModule,
 } from 'ngx-toastr';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +73,14 @@ import {
     ToastNoAnimationModule.forRoot(),
   ],
   exports: [MatButtonModule, MatFormFieldModule, MatInputModule],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
