@@ -43,11 +43,9 @@ export class PlanactionComponent implements OnInit {
   // Get action list
   loadActions() {
     this.localApi.getActions('preventive').subscribe((data) => {
-      //console.log(data);
       this.data = data;
     });
     this.localApi.getActions('corrective').subscribe((data) => {
-      //console.log(data);
       this.dataCorrective = data;
     });
   }
