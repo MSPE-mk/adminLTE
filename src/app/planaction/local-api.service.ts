@@ -21,7 +21,6 @@ export class LocalApiService {
   // HttpClient API get() method => Fetch employees list
 
   public getActions(type): Observable<Action[]> {
-    console.log(JSON.stringify(type));
     let uri = {
       url: type,
     };

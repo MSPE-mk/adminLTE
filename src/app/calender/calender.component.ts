@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calender',
   templateUrl: './calender.component.html',
-  styleUrls: ['./calender.component.css']
+  styleUrls: ['./calender.component.css'],
 })
 export class CalenderComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   exit() {
-    location.reload();
+    //location.reload();
+    this.router.navigate(['/dashboard']);
   }
-
 }
