@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { tauxPcInfecte,dataTable,tableHeaders } from './data';
+import { tauxPcInfecte, dataTable, tableHeaders } from './data';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   tauxPcInfecte: any[];
-  dataTable : any[];
+  dataTable: any[];
   tableHeaders: any[];
   view: any[];
 
@@ -27,10 +26,8 @@ export class HomeComponent implements OnInit {
   timeline: boolean = true;
 
   colorScheme = {
-    domain: ['#51bcda', '#ef8157','#aba6a6']
+    domain: ['#51bcda', '#ef8157', '#aba6a6'],
   };
-
-  
 
   constructor() {
     Object.assign(this, { tauxPcInfecte });
@@ -40,25 +37,23 @@ export class HomeComponent implements OnInit {
   }
 
   onSelect(data): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    //console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
   onActivate(data): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
+    //console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
 
   onDeactivate(data): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+    //console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
   onResize(event) {
     this.view = [event.target.innerWidth / 1.35, 400];
-}
-exit() {
-  location.reload();
-}
+  }
+  exit() {
+    location.reload();
+  }
 
   ngOnInit(): void {}
-
-
 }

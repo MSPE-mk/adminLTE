@@ -3,9 +3,6 @@ import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { ToastrService } from 'ngx-toastr';
 
-// import bcrypt librairie
-import * as bcrypt from 'bcryptjs';
-
 import {
   FormBuilder,
   FormControl,
@@ -68,7 +65,6 @@ export class LoginComponent implements OnInit {
         if (res.token == '') {
           this.toastr.error('Email or Password are invalid');
         } else {
-          console.log(res);
           let token = res.token;
 
           localStorage.setItem('myToken', token);
