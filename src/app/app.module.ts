@@ -40,7 +40,6 @@ import {
   ToastNoAnimation,
   ToastNoAnimationModule,
 } from 'ngx-toastr';
-import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -73,14 +72,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     ToastNoAnimationModule.forRoot(),
   ],
   exports: [MatButtonModule, MatFormFieldModule, MatInputModule],
-  providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true,
-    },
-  ],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
