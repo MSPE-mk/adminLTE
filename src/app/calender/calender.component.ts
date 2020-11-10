@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InfectedPcsService } from '../infected-pcs.service';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-calender',
@@ -7,12 +14,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./calender.component.css'],
 })
 export class CalenderComponent implements OnInit {
-  constructor(private router: Router) {}
+  calanderForm: FormGroup;
+
+  data: any[];
+
+  constructor(
+    private router: Router,
+    private infected_pcs: InfectedPcsService,
+    private formBuilder: FormBuilder
+  ) {
+    let formControls = {};
+    this.calanderForm = this.formBuilder.group(formControls);
+  }
 
   ngOnInit(): void {}
 
-  exit() {
+  choose() {
     //location.reload();
     //this.router.navigate(['/dashboard']);
+    this.infected_pcs.getAllInfected_pcs().subscribe(
+      (result) => {
+        let data = this.calanderForm.value;
+        console.log(data);
+        console.log('--------');
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

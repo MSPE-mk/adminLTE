@@ -1,40 +1,42 @@
-<div
-  style="
-    display: inline-flex;
-    margin-bottom: 15px;
-    margin-left: 10px;
-    padding-top: 35px;
-  "
->
-  <label for="start" style="padding-left: 10px; padding-right: 20px"
-    >Date debut:</label
+<form [formGroup]="calanderForm" (ngSubmit)="choose()">
+  <div
+    style="
+      display: inline-flex;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      padding-top: 35px;
+    "
   >
+    <label for="start" style="padding-left: 10px; padding-right: 20px"
+      >Date debut:</label
+    >
 
-  <input
-    type="date"
-    id="start"
-    name="trip-start"
-    value="2020-10-14"
-    min="2020-01-01"
-    max="2020-12-31"
-  />
+    <input
+      type="date"
+      id="start"
+      name="trip-start"
+      value="2020-10-14"
+      min="2020-01-01"
+    />
 
-  <label for="start" style="padding-left: 120px; padding-right: 20px"
-    >Date fin:</label
-  >
+    <label for="start" style="padding-left: 120px; padding-right: 20px"
+      >Date fin:</label
+    >
 
-  <input
-    type="date"
-    id="start"
-    name="trip-start"
-    value="2020-10-14"
-    min="2020-01-01"
-    max="2020-12-31"
-  />
-  <div style="padding-right: 15px; padding-left: 60px">
-    <button mat-flat-button color="primary" (click)="exit()">confirmer</button>
+    <input
+      type="date"
+      id="end"
+      name="trip-end"
+      value="2020-10-14"
+      min="2021-01-01"
+    />
+    <div style="padding-right: 15px; padding-left: 60px">
+      <button mat-flat-button color="primary" (click)="choose()">
+        confirmer
+      </button>
+    </div>
   </div>
-</div>
+</form>
 
 <div class="month">
   <ul>

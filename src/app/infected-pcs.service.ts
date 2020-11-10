@@ -16,4 +16,8 @@ export class InfectedPcsService {
   getInfected_pcs(year) {
     return this.http.get<any>(this.apiURL + '/infected_pcs/' + year + '/');
   }
+
+  getAllInfected_pcs() {
+    return this.http.get<any>(this.apiURL + '/infected_pcs/');
+  }
 }
