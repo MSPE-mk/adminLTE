@@ -13,6 +13,6 @@ export class CalenderComponent implements OnInit {
 
   exit() {
     //location.reload();
-    this.router.navigate(['/dashboard']);
+    //this.router.navigate(['/dashboard']);
   }
 }
