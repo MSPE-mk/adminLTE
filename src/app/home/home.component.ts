@@ -59,6 +59,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.infected_pcs.getInfected_pcs(2020).subscribe(
       (result) => {
+
+
+        
         var data = [
           {
             rowName: 'Nombre de postes infectés',

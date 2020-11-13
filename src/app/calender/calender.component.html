@@ -15,11 +15,11 @@
       type="date"
       id="start"
       name="trip-start"
-      value="2020-10-14"
       min="2020-01-01"
+      formControlName="start"
     />
 
-    <label for="start" style="padding-left: 120px; padding-right: 20px"
+    <label for="end" style="padding-left: 120px; padding-right: 20px"
       >Date fin:</label
     >
 
@@ -27,68 +27,49 @@
       type="date"
       id="end"
       name="trip-end"
-      value="2020-10-14"
       min="2021-01-01"
+      formControlName="end"
     />
     <div style="padding-right: 15px; padding-left: 60px">
-      <button mat-flat-button color="primary" (click)="choose()">
-        confirmer
-      </button>
+      <button mat-flat-button type="submit" color="primary">confirmer</button>
     </div>
   </div>
 </form>
 
-<div class="month">
-  <ul>
-    <li class="prev">&#10094;</li>
-    <li class="next">&#10095;</li>
-    <li>
-      Octobre<br />
-      <span style="font-size: 18px">2020</span>
-    </li>
-  </ul>
+<!-- Data Table -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">
+          Le pourcentage des PC infectés par rapport au nombre total de PC
+          disponible au MSPE
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th *ngFor="let column of tableHeaders">
+                <div *ngIf="column != 'rowName'">
+                  {{ column }}
+                </div>
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of dataTable">
+                <td
+                  *ngFor="let column of tableHeaders"
+                  [ngClass]="row['classType']"
+                >
+                  {{ row[column] }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
-
-<ul class="days">
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li><span class="active">10</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
+<!-- END Data table -->
