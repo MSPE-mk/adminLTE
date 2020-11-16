@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-6">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -27,26 +27,24 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">Juillet</p>
-                <p class="card-title">0
-                <p>
+                <p class="card-category">September</p>
+                <p class="card-title">0</p>
+                <p></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="card-footer ">
-          <hr>
+        <div class="card-footer">
+          <hr />
           <div class="stats">
-
-            <button mat-flat-button color="primary" >2020</button>
-      
+            <button mat-flat-button color="primary">2020</button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -55,26 +53,24 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">Aout</p>
-                <p class="card-title">0
-                <p>
+                <p class="card-category">October</p>
+                <p class="card-title">0</p>
+                <p></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="card-footer ">
-          <hr>
+        <div class="card-footer">
+          <hr />
           <div class="stats">
-            <button mat-flat-button color="primary" >2020</button>
-
-      
+            <button mat-flat-button color="primary">2020</button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
       <div class="card card-stats">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -83,26 +79,24 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">Septembre</p>
-                <p class="card-title">0
-                <p>
+                <p class="card-category">November</p>
+                <p class="card-title">0</p>
+                <p></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="card-footer ">
-          <hr>
+        <div class="card-footer">
+          <hr />
           <div class="stats">
-            <button mat-flat-button color="primary" >2020</button>
-
-      
+            <button mat-flat-button color="primary">2020</button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
       <div class="card card-stats bg-success">
-        <div class="card-body ">
+        <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-warning">
@@ -111,20 +105,26 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">Octobre</p>
-                <p class="card-title">0
-                <p>
+                <p class="card-category">December</p>
+                <p class="card-title">0</p>
+                <p></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="card-footer ">
-          <hr>
+        <div class="card-footer">
+          <hr />
           <div class="stats">
             <i class="fa fa-refresh"></i>
 
-            <button mat-flat-button color="primary" routerLink="/" (click)="exit()">Update now</button>
-      
+            <button
+              mat-flat-button
+              color="primary"
+              routerLink="/"
+              (click)="exit()"
+            >
+              Update now
+            </button>
           </div>
         </div>
       </div>
@@ -135,23 +135,28 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title"> Le pourcentage des PC infectés par rapport au nombre total de PC disponible au
-            MSPE</h5>
+          <h5 class="card-title">
+            Le pourcentage des PC infectés par rapport au nombre total de PC
+            disponible au MSPE
+          </h5>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
-              <thead class=" text-primary">
+              <thead class="text-primary">
                 <th *ngFor="let column of tableHeaders">
                   <div *ngIf="column != 'rowName'">
-                    {{column}}
+                    {{ column }}
                   </div>
                 </th>
               </thead>
               <tbody>
                 <tr *ngFor="let row of dataTable">
-                  <td *ngFor="let column of tableHeaders" [ngClass]="row['classType']">
-                    {{row[column]}}
+                  <td
+                    *ngFor="let column of tableHeaders"
+                    [ngClass]="row['classType']"
+                  >
+                    {{ row[column] }}
                   </td>
                 </tr>
               </tbody>
@@ -160,7 +165,6 @@
         </div>
       </div>
     </div>
-
   </div>
   <!-- END Data table -->
 
@@ -173,19 +177,31 @@
           <p class="card-category"></p>
         </div>
         <div class="card-body">
-          <ngx-charts-line-chart (window:resize)="onResize($event)" [view]="view" [scheme]="colorScheme"
-            [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis"
-            [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline"
-            [results]="tauxPcInfecte" (select)="onSelect($event)" (activate)="onActivate($event)"
-            (deactivate)="onDeactivate($event)">
+          <ngx-charts-line-chart
+            (window:resize)="onResize($event)"
+            [view]="view"
+            [scheme]="colorScheme"
+            [legend]="legend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxis]="xAxis"
+            [yAxis]="yAxis"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            [timeline]="timeline"
+            [results]="tauxPcInfecte"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+          >
           </ngx-charts-line-chart>
         </div>
-         <div class="card-footer">
+        <div class="card-footer">
           <div class="chart-legend">
             <div class="row">
               <div class="col-md-3"></div>
-              <div class="col-md-3"   >
-                <i class="fa fa-circle text-info" ></i> Taux nbr de PC infectés %
+              <div class="col-md-3">
+                <i class="fa fa-circle text-info"></i> Taux nbr de PC infectés %
               </div>
               <div class="col-md-4">
                 <i class="fa fa-circle text-danger"></i> Objectifs
