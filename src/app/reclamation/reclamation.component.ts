@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Reclamation } from '../reclamation';
 import { ReclamationService } from '../reclamation.service';
 import {
   nbrReclationNonResolu,
@@ -18,6 +19,11 @@ export class ReclamationComponent implements OnInit {
   dataTable: any[];
   tableHeaders: any[];
   view: any[];
+  //september: Reclamation;
+  //september: [];
+  //october: [];
+  //november: [];
+  //december: [];
 
   nbrReclationNonResolu: any[];
   nbrReclationResolu: any[];
@@ -65,6 +71,11 @@ export class ReclamationComponent implements OnInit {
     Object.assign(this, { tableHeaders });
     Object.assign(this, { tauxPcInfecte });
     this.view = [innerWidth / 1.3, 400];
+
+    this.september = [];
+    this.october = [];
+    this.november = [];
+    this.december = [];
   }
 
   ngOnInit(): void {
@@ -122,6 +133,14 @@ export class ReclamationComponent implements OnInit {
         ];
 
         this.dataTable = data;
+        //this.september = result[8];
+        //this.october = result[9];
+        //this.november = result[10];
+        //this.december = result[11];
+        let september = result[8];
+        let october = result[9];
+        let november = result[10];
+        let december = result[11];
       },
       (error) => {
         console.log(error);

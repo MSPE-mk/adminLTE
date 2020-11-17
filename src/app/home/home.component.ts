@@ -13,6 +13,10 @@ export class HomeComponent implements OnInit {
   dataTable: any[];
   tableHeaders: any[];
   view: any[];
+  september: any[];
+  october: any[];
+  november: any[];
+  december: any[];
 
   // options
   legend: boolean = false;
@@ -59,9 +63,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.infected_pcs.getInfected_pcs(2020).subscribe(
       (result) => {
-
-
-        
         var data = [
           {
             rowName: 'Nombre de postes infectés',
@@ -128,6 +129,10 @@ export class HomeComponent implements OnInit {
         ];
 
         this.dataTable = data;
+        this.september = result[8];
+        this.october = result[9];
+        this.november = result[10];
+        this.december = result[11];
       },
       (error) => {
         console.log(error);

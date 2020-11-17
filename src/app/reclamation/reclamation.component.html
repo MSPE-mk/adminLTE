@@ -28,7 +28,7 @@
             <div class="col-7 col-md-8">
               <div class="numbers">
                 <p class="card-category">September</p>
-                <p class="card-title">0</p>
+                <p class="card-title">{{ september.nb_resolved }}</p>
                 <p></p>
               </div>
             </div>
@@ -54,7 +54,7 @@
             <div class="col-7 col-md-8">
               <div class="numbers">
                 <p class="card-category">October</p>
-                <p class="card-title">0</p>
+                <p class="card-title">{{ october.nb_resolved }}</p>
                 <p></p>
               </div>
             </div>
@@ -80,7 +80,7 @@
             <div class="col-7 col-md-8">
               <div class="numbers">
                 <p class="card-category">November</p>
-                <p class="card-title">0</p>
+                <p class="card-title">{{ november.nb_resolved }}</p>
                 <p></p>
               </div>
             </div>
@@ -95,7 +95,10 @@
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
-      <div class="card card-stats bg-success">
+      <div
+        *ngIf="december.nb_resolved >= december.objective {class='card card-stats bg-success'} else class='card card-stats bg-danger' "
+        }
+      >
         <div class="card-body">
           <div class="row">
             <div class="col-5 col-md-4">
@@ -106,7 +109,7 @@
             <div class="col-7 col-md-8">
               <div class="numbers">
                 <p class="card-category">December</p>
-                <p class="card-title">0</p>
+                <p class="card-title">{{ december.nb_resolved }}</p>
                 <p></p>
               </div>
             </div>
