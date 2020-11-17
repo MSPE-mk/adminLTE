@@ -1,6 +1,3 @@
 export class User {
-
-    constructor(private email?:String, private password?: String){
-
-    }
+  constructor(private email?: String, private password?: String) {}
 }
