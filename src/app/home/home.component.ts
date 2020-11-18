@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
   dataTable: any[];
   tableHeaders: any[];
   view: any[];
-  september: any[];
-  october: any[];
-  november: any[];
-  december: any[];
+  september: any = [];
+  october: any = [];
+  november: any = [];
+  december: any = [];
 
   // options
   legend: boolean = false;

@@ -19,10 +19,10 @@ export class ReclamationComponent implements OnInit {
   tableHeaders: any[];
   view: any[];
 
-  september: [];
-  october: [];
-  november: [];
-  december: [];
+  september: any = [];
+  october: any = [];
+  november: any = [];
+  december: any = [];
 
   nbrReclationNonResolu: any[];
   nbrReclationResolu: any[];
