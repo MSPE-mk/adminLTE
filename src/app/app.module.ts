@@ -40,6 +40,7 @@ import {
   ToastNoAnimation,
   ToastNoAnimationModule,
 } from 'ngx-toastr';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {
     CalenderComponent,
     LayoutComponent,
     Page404Component,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
