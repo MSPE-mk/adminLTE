@@ -32,4 +32,14 @@ export class InfectedPcsService {
       //   retry(1),
       ();
   }
+
+  public update_Infected_pc(id, infected_pc) {
+    return this.http
+      .put<any>(
+        this.apiURL + '/infected_pcs' + '/update/' + id,
+        JSON.stringify(infected_pc),
+        this.httpOptions
+      )
+      .pipe();
+  }
 }

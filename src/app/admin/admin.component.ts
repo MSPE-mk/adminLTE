@@ -23,6 +23,7 @@ export class AdminComponent implements OnInit {
   dataCorrective: any = [];
 
   //Create form controls for modal
+  id = new FormControl('');
   year = new FormControl('');
   month = new FormControl('');
   nb_infected = new FormControl('');
@@ -61,6 +62,46 @@ export class AdminComponent implements OnInit {
       this.loadpcs();
       this.resetForms();
     });
+  }
+
+  getCurrentInfected(id, apiRoute) {
+    this.id = id;
+    let infection: any = [];
+    // function to extract action by it's id
+    function findWithAttr(array, attr, value) {
+      for (var i = 0; i < array.length; i += 1) {
+        if (array[i][attr] === value) {
+          return array[i];
+        }
+      }
+    }
+
+    infection = findWithAttr(this.data, 'id', this.id);
+    this.year.setValue(infection.year);
+    this.month.setValue(infection.month);
+    this.nb_infected.setValue(infection.nb_infected);
+    this.nb_pcs.setValue(infection.nb_pcs);
+    this.objective.setValue(infection.objective);
+  }
+
+  // update Action
+  updateInfected(apiRoute) {
+    let newInfection = {
+      id: this.id,
+      year: this.year.value,
+      month: this.month.value,
+      nb_infected: this.nb_infected.value,
+      nb_pcs: this.nb_pcs.value,
+      objective: this.objective.value,
+    };
+    this.infected_pcs
+      .update_Infected_pc(this.id, newInfection)
+      .subscribe(() => {
+        //refresh data table and reset data forms
+
+        this.loadpcs();
+        this.resetForms();
+      });
   }
 
   // reset all formControl
