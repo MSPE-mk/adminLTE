@@ -190,5 +190,7 @@ export class AdminComponent implements OnInit {
     this.nb_infected.reset();
     this.nb_pcs.reset();
     this.objective.reset();
+    this.nb_not_resolved.reset();
+    this.nb_resolved.reset();
   }
 }
