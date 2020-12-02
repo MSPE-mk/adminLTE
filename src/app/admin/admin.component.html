@@ -1,12 +1,12 @@
 <section>
-  <!-- Data Table plan d'action Corrective -->
+  <!-- Data Table Infection -->
   <div class="card-body">
     <h5>Infected Pcs table</h5>
     <button
       mat-flat-button
       color="primary"
       data-toggle="modal"
-      data-target="#addActionCorrective"
+      data-target="#addInfection"
     >
       New Infection
     </button>
@@ -53,10 +53,182 @@
   </div>
 </section>
 
-<!-- Modal -->
+<section>
+  <!-- Data Table reclamation -->
+  <div class="card-body">
+    <h5>Recalmation table</h5>
+    <button
+      mat-flat-button
+      color="primary"
+      data-toggle="modal"
+      data-target="#addReclamation"
+    >
+      New Reclamation
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table
+        class="table table-striped table-bordered table-hovered table-sm"
+        cellspacing="0"
+        style="width: 100%"
+        id="dtBasicExample"
+      >
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Month</th>
+            <th>NB Not Resolved</th>
+            <th>Objective</th>
+            <th>NB Resolved</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of dataReclamation">
+            <td>{{ row.year }}</td>
+            <td>{{ row.month }}</td>
+            <td>{{ row.nb_not_resolved }}</td>
+            <td>{{ row.objective }}</td>
+            <td>{{ row.nb_resolved }}</td>
+
+            <td>
+              <button
+                class="btn btn-warning"
+                (click)="getCurrentReclamation(row['id'])"
+                data-toggle="modal"
+                data-target="#updateReclamation"
+              >
+                Update
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Modal add Reclamation-->
 <div
   class="modal fade"
-  id="addActionCorrective"
+  id="addReclamation"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Action</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-calendar" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="year"
+            placeholder="Year"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="month"
+            placeholder="Month"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-pencil-square-o" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="nb_not_resolved"
+            placeholder="Nb Not Resolved"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-user-circle-o" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="objective"
+            placeholder="Objective"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-calendar" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="nb_resolved"
+            placeholder="NB Resolved"
+            aria-label="Objective"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          (click)="addReclamation()"
+          data-dismiss="modal"
+          class="btn btn-primary"
+        >
+          Enregistrer
+        </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal  addInfection -->
+<div
+  class="modal fade"
+  id="addInfection"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalCenterTitle"
@@ -117,7 +289,7 @@
             type="text"
             class="form-control"
             [formControl]="nb_infected"
-            placeholder="Nb Pc infectés"
+            placeholder="Nb Pc infected"
             aria-describedby="basic-addon1"
           />
         </div>
@@ -272,6 +444,122 @@
         <button
           type="button"
           (click)="updateInfected(id)"
+          data-dismiss="modal"
+          class="btn btn-primary"
+        >
+          Enregistrer
+        </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- update Reclamation Modal -->
+<div
+  class="modal fade"
+  id="updateReclamation"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modifier Action</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-calendar" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="year"
+            placeholder="Year"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="month"
+            placeholder="Month"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-pencil-square-o" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="nb_not_resolved"
+            placeholder="NB Not Resolved"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-user-circle-o" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="objective"
+            placeholder="Objective"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="fa fa-calendar" aria-hidden="true"></i
+            ></span>
+          </div>
+          <input
+            type="input"
+            class="form-control"
+            [formControl]="nb_resolved"
+            placeholder="NB Resolved"
+            aria-label="objective"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          (click)="updateReclamation(id)"
           data-dismiss="modal"
           class="btn btn-primary"
         >

@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { InfectedPcsService } from '../infected-pcs.service';
+import { ReclamationService } from '../reclamation.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -20,7 +21,7 @@ export class AdminComponent implements OnInit {
   ];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   data: any = [];
-  dataCorrective: any = [];
+  dataReclamation: any = [];
 
   //Create form controls for modal
   id = new FormControl('');
@@ -29,18 +30,36 @@ export class AdminComponent implements OnInit {
   nb_infected = new FormControl('');
   nb_pcs = new FormControl('');
   objective = new FormControl('');
+  nb_not_resolved = new FormControl('');
+  nb_resolved = new FormControl('');
 
-  constructor(private infected_pcs: InfectedPcsService) {}
+  constructor(
+    private infected_pcs: InfectedPcsService,
+    private reclamationService: ReclamationService
+  ) {}
 
   ngOnInit(): void {
     this.loadpcs();
+    this.loadreclamations();
   }
 
-  // Get posts list
+  // Get Infections list
   loadpcs() {
     this.infected_pcs.getAllInfected_pcs().subscribe(
       (result) => {
         this.data = result;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  // Get reclamations list
+  loadreclamations() {
+    this.reclamationService.getAllReclamations().subscribe(
+      (result) => {
+        this.dataReclamation = result;
       },
       (error) => {
         console.log(error);
@@ -64,6 +83,27 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  addReclamation() {
+    let reclamation = {
+      year: this.year.value,
+      month: this.month.value,
+      nb_not_resolved: this.nb_not_resolved.value,
+      objective: this.objective.value,
+      nb_resolved: this.nb_resolved.value,
+    };
+
+    this.reclamationService.add_reclamation(reclamation).subscribe(
+      () => {
+        //refresh data table and reset data forms
+        this.loadreclamations();
+        this.resetForms();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   getCurrentInfected(id, apiRoute) {
     this.id = id;
     let infection: any = [];
@@ -84,7 +124,46 @@ export class AdminComponent implements OnInit {
     this.objective.setValue(infection.objective);
   }
 
-  // update Action
+  getCurrentReclamation(id) {
+    this.id = id;
+    let reclamation: any = [];
+    // function to extract action by it's id
+    function findWithAttr(array, attr, value) {
+      for (var i = 0; i < array.length; i += 1) {
+        if (array[i][attr] === value) {
+          return array[i];
+        }
+      }
+    }
+
+    reclamation = findWithAttr(this.dataReclamation, 'id', this.id);
+    this.year.setValue(reclamation.year);
+    this.month.setValue(reclamation.month);
+    this.nb_not_resolved.setValue(reclamation.nb_not_resolved);
+    this.objective.setValue(reclamation.objective);
+    this.nb_resolved.setValue(reclamation.nb_resolved);
+  }
+
+  updateReclamation(id) {
+    let newReclamation = {
+      id: this.id,
+      year: this.year.value,
+      month: this.month.value,
+      nb_not_resolved: this.nb_not_resolved.value,
+      objective: this.objective.value,
+      nb_resolved: this.nb_resolved.value,
+    };
+    this.reclamationService
+      .update_reclamation(this.id, newReclamation)
+      .subscribe(() => {
+        //refresh data table and reset data forms
+
+        this.loadreclamations();
+        this.resetForms();
+      });
+  }
+
+  // update Infection
   updateInfected(apiRoute) {
     let newInfection = {
       id: this.id,
