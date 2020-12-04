@@ -19,10 +19,10 @@ export class ReclamationComponent implements OnInit {
   tableHeaders: any[];
   view: any[];
 
-  september: any = [];
-  october: any = [];
-  november: any = [];
-  december: any = [];
+  month_1: any = [];
+  month_2: any = [];
+  month_3: any = [];
+  month_4: any = [];
 
   nbrReclationNonResolu: any[];
   nbrReclationResolu: any[];
@@ -133,10 +133,14 @@ export class ReclamationComponent implements OnInit {
 
         this.dataTable = data;
 
-        this.september = result[8];
-        this.october = result[9];
-        this.november = result[10];
-        this.december = result[11];
+        let today = new Date();
+        let i = today.getMonth();
+        let year = today.getFullYear();
+        i = i + (year - 2020) * 12;
+        this.month_1 = result[i - 3];
+        this.month_2 = result[i - 2];
+        this.month_3 = result[i - 1];
+        this.month_4 = result[i];
       },
       (error) => {
         console.log(error);

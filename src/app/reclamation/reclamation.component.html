@@ -27,8 +27,8 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">September</p>
-                <p class="card-title">{{ september.nb_not_resolved }}</p>
+                <p class="card-category">{{ month_1.month }}</p>
+                <p class="card-title">{{ month_1.nb_not_resolved }}</p>
                 <p></p>
               </div>
             </div>
@@ -37,7 +37,7 @@
         <div class="card-footer">
           <hr />
           <div class="stats">
-            <button mat-flat-button color="primary">2020</button>
+            <button mat-flat-button color="primary">{{ month_1.year }}</button>
           </div>
         </div>
       </div>
@@ -53,8 +53,8 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">October</p>
-                <p class="card-title">{{ october.nb_not_resolved }}</p>
+                <p class="card-category">{{ month_2.month }}</p>
+                <p class="card-title">{{ month_2.nb_not_resolved }}</p>
                 <p></p>
               </div>
             </div>
@@ -63,7 +63,7 @@
         <div class="card-footer">
           <hr />
           <div class="stats">
-            <button mat-flat-button color="primary">2020</button>
+            <button mat-flat-button color="primary">{{ month_2.year }}</button>
           </div>
         </div>
       </div>
@@ -79,8 +79,8 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">November</p>
-                <p class="card-title">{{ november.nb_not_resolved }}</p>
+                <p class="card-category">{{ month_3.month }}</p>
+                <p class="card-title">{{ month_3.nb_not_resolved }}</p>
                 <p></p>
               </div>
             </div>
@@ -89,7 +89,7 @@
         <div class="card-footer">
           <hr />
           <div class="stats">
-            <button mat-flat-button color="primary">2020</button>
+            <button mat-flat-button color="primary">{{ month_3.year }}</button>
           </div>
         </div>
       </div>
@@ -105,8 +105,8 @@
             </div>
             <div class="col-7 col-md-8">
               <div class="numbers">
-                <p class="card-category">December</p>
-                <p class="card-title">{{ december.nb_not_resolved }}</p>
+                <p class="card-category">{{ month_4.month }}</p>
+                <p class="card-title">{{ month_4.nb_not_resolved }}</p>
                 <p></p>
               </div>
             </div>
@@ -123,7 +123,7 @@
               routerLink="/reclam"
               (click)="exit()"
             >
-              Update now
+              {{ month_4.year }}
             </button>
           </div>
         </div>
