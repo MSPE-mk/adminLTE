@@ -131,6 +131,276 @@ export class ReclamationComponent implements OnInit {
           },
         ];
 
+        let resolved_chart = [
+          {
+            name: 'Jan/20',
+            value: result[0].nb_resolved,
+          },
+          {
+            name: 'Feb/20',
+            value: result[1].nb_resolved,
+          },
+          {
+            name: 'Marz/20',
+            value: result[2].nb_resolved,
+          },
+          {
+            name: 'Apr/20',
+            value: result[3].nb_resolved,
+          },
+          {
+            name: 'Mai/20',
+            value: result[4].nb_resolved,
+          },
+          {
+            name: 'Jun/20',
+            value: result[5].nb_resolved,
+          },
+          {
+            name: 'Jul/20',
+            value: result[6].nb_resolved,
+          },
+          {
+            name: 'Aug/20',
+            value: result[7].nb_resolved,
+          },
+          {
+            name: 'Sep/20',
+            value: result[8].nb_resolved,
+          },
+          {
+            name: 'Okt/20',
+            value: result[9].nb_resolved,
+          },
+          {
+            name: 'Nou/20',
+            value: result[10].nb_resolved,
+          },
+          {
+            name: 'Dez/20',
+            value: result[11].nb_resolved,
+          },
+        ];
+
+        let not_resolved_chart = [
+          {
+            name: 'Jan/20',
+            value: result[0].nb_not_resolved,
+          },
+          {
+            name: 'Feb/20',
+            value: result[1].nb_not_resolved,
+          },
+          {
+            name: 'Marz/20',
+            value: result[2].nb_not_resolved,
+          },
+          {
+            name: 'Apr/20',
+            value: result[3].nb_not_resolved,
+          },
+          {
+            name: 'Mai/20',
+            value: result[4].nb_not_resolved,
+          },
+          {
+            name: 'Jun/20',
+            value: result[5].nb_not_resolved,
+          },
+          {
+            name: 'Jul/20',
+            value: result[6].nb_not_resolved,
+          },
+          {
+            name: 'Aug/20',
+            value: result[7].nb_not_resolved,
+          },
+          {
+            name: 'Sep/20',
+            value: result[8].nb_not_resolved,
+          },
+          {
+            name: 'Okt/20',
+            value: result[9].nb_not_resolved,
+          },
+          {
+            name: 'Nou/20',
+            value: result[10].nb_not_resolved,
+          },
+          {
+            name: 'Dez/20',
+            value: result[11].nb_not_resolved,
+          },
+        ];
+
+        let infected_chart = [
+          {
+            name: 'Nombre des Réclamation Non résolues',
+            series: [
+              {
+                name: 'Jan/20',
+                value: result[0].nb_not_resolved,
+              },
+              {
+                name: 'Feb/20',
+                value: result[1].nb_not_resolved,
+              },
+              {
+                name: 'Marz/20',
+                value: result[2].nb_not_resolved,
+              },
+              {
+                name: 'Apr/20',
+                value: result[3].nb_not_resolved,
+              },
+              {
+                name: 'Mai/20',
+                value: result[4].nb_not_resolved,
+              },
+              {
+                name: 'Jun/20',
+                value: result[5].nb_not_resolved,
+              },
+              {
+                name: 'Jul/20',
+                value: result[6].nb_not_resolved,
+              },
+              {
+                name: 'Aug/20',
+                value: result[7].nb_not_resolved,
+              },
+              {
+                name: 'Sep/20',
+                value: result[8].nb_not_resolved,
+              },
+              {
+                name: 'Okt/20',
+                value: result[9].nb_not_resolved,
+              },
+              {
+                name: 'Nov/20',
+                value: result[10].nb_not_resolved,
+              },
+              {
+                name: 'Dez/20',
+                value: result[11].nb_not_resolved,
+              },
+            ],
+          },
+
+          {
+            name: 'objectifs',
+            series: [
+              {
+                name: 'Jan/20',
+                value: result[0].objective,
+              },
+              {
+                name: 'Feb/20',
+                value: result[1].objective,
+              },
+              {
+                name: 'Marz/20',
+                value: result[2].objective,
+              },
+              {
+                name: 'Apr/20',
+                value: result[3].objective,
+              },
+              {
+                name: 'Mai/20',
+                value: result[4].objective,
+              },
+              {
+                name: 'Jun/20',
+                value: result[5].objective,
+              },
+              {
+                name: 'Jul/20',
+                value: result[6].objective,
+              },
+              {
+                name: 'Aug/20',
+                value: result[7].objective,
+              },
+              {
+                name: 'Sep/20',
+                value: result[8].objective,
+              },
+              {
+                name: 'Okt/20',
+                value: result[9].objective,
+              },
+              {
+                name: 'Nov/20',
+                value: result[10].objective,
+              },
+              {
+                name: 'Dez/20',
+                value: result[11].objective,
+              },
+            ],
+          },
+          {
+            name: 'max',
+            series: [
+              {
+                name: 'Jan/20',
+                value: 30,
+              },
+              {
+                name: 'Feb/20',
+                value: 30,
+              },
+              {
+                name: 'Marz/20',
+                value: 30,
+              },
+              {
+                name: 'Apr/20',
+                value: 30,
+              },
+              {
+                name: 'Mai/20',
+                value: 30,
+              },
+              {
+                name: 'Jun/20',
+                value: 30,
+              },
+              {
+                name: 'Jul/20',
+                value: 30,
+              },
+              {
+                name: 'Aug/20',
+                value: 30,
+              },
+              {
+                name: 'Sep/20',
+                value: 30,
+              },
+              {
+                name: 'Okt/20',
+                value: 30,
+              },
+              {
+                name: 'Nov/20',
+                value: 30,
+              },
+              {
+                name: 'Dez/20',
+                value: 30,
+              },
+            ],
+          },
+        ];
+
+        this.tauxPcInfecte = infected_chart;
+
+        this.nbrReclationNonResolu = not_resolved_chart;
+        this.nbrReclationResolu = resolved_chart;
+
         this.dataTable = data;
 
         let today = new Date();

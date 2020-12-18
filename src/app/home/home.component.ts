@@ -128,6 +128,170 @@ export class HomeComponent implements OnInit {
           },
         ];
 
+        let chart = [
+          {
+            name: 'Nombre des Réclamation Non résolues',
+            series: [
+              {
+                name: 'Jan/20',
+                value: result[0].nb_infected,
+              },
+              {
+                name: 'Feb/20',
+                value: result[1].nb_infected,
+              },
+              {
+                name: 'Marz/20',
+                value: result[2].nb_infected,
+              },
+              {
+                name: 'Apr/20',
+                value: result[3].nb_infected,
+              },
+              {
+                name: 'Mai/20',
+                value: result[4].nb_infected,
+              },
+              {
+                name: 'Jun/20',
+                value: result[5].nb_infected,
+              },
+              {
+                name: 'Jul/20',
+                value: result[6].nb_infected,
+              },
+              {
+                name: 'Aug/20',
+                value: result[7].nb_infected,
+              },
+              {
+                name: 'Sep/20',
+                value: result[8].nb_infected,
+              },
+              {
+                name: 'Okt/20',
+                value: result[9].nb_infected,
+              },
+              {
+                name: 'Nou/20',
+                value: result[10].nb_infected,
+              },
+              {
+                name: 'Dez/20',
+                value: result[11].nb_infected,
+              },
+            ],
+          },
+
+          {
+            name: 'objectifs',
+            series: [
+              {
+                name: 'Jan/20',
+                value: result[0].objective,
+              },
+              {
+                name: 'Feb/20',
+                value: result[1].objective,
+              },
+              {
+                name: 'Marz/20',
+                value: result[2].objective,
+              },
+              {
+                name: 'Apr/20',
+                value: result[3].objective,
+              },
+              {
+                name: 'Mai/20',
+                value: result[4].objective,
+              },
+              {
+                name: 'Jun/20',
+                value: result[5].objective,
+              },
+              {
+                name: 'Jul/20',
+                value: result[6].objective,
+              },
+              {
+                name: 'Aug/20',
+                value: result[7].objective,
+              },
+              {
+                name: 'Sep/20',
+                value: result[8].objective,
+              },
+              {
+                name: 'Okt/20',
+                value: result[9].objective,
+              },
+              {
+                name: 'Nou/20',
+                value: result[10].objective,
+              },
+              {
+                name: 'Dez/20',
+                value: result[11].objective,
+              },
+            ],
+          },
+          {
+            name: 'max',
+            series: [
+              {
+                name: 'Jan/20',
+                value: 30,
+              },
+              {
+                name: 'Feb/20',
+                value: 30,
+              },
+              {
+                name: 'Marz/20',
+                value: 30,
+              },
+              {
+                name: 'Apr/20',
+                value: 30,
+              },
+              {
+                name: 'Mai/20',
+                value: 30,
+              },
+              {
+                name: 'Jun/20',
+                value: 30,
+              },
+              {
+                name: 'Jul/20',
+                value: 30,
+              },
+              {
+                name: 'Aug/20',
+                value: 30,
+              },
+              {
+                name: 'Sep/20',
+                value: 30,
+              },
+              {
+                name: 'Okt/20',
+                value: 30,
+              },
+              {
+                name: 'Nou/20',
+                value: 30,
+              },
+              {
+                name: 'Dez/20',
+                value: 30,
+              },
+            ],
+          },
+        ];
+
+        this.tauxPcInfecte = chart;
         this.dataTable = data;
 
         let today = new Date();
