@@ -169,54 +169,6 @@
   <!-- END Data table -->
 
   <!-- chart -->
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card card-chart">
-        <div class="card-header">
-          <h5 class="card-title"></h5>
-          <p class="card-category"></p>
-        </div>
-        <div class="card-body">
-          <ngx-charts-line-chart
-            (window:resize)="onResize($event)"
-            [view]="view"
-            [scheme]="colorScheme"
-            [legend]="legend"
-            [showXAxisLabel]="showXAxisLabel"
-            [showYAxisLabel]="showYAxisLabel"
-            [xAxis]="xAxis"
-            [yAxis]="yAxis"
-            [xAxisLabel]="xAxisLabel"
-            [yAxisLabel]="yAxisLabel"
-            [timeline]="timeline"
-            [results]="tauxPcInfecte"
-            (select)="onSelect($event)"
-            (activate)="onActivate($event)"
-            (deactivate)="onDeactivate($event)"
-          >
-          </ngx-charts-line-chart>
-        </div>
-        <div class="card-footer">
-          <div class="chart-legend">
-            <div class="row">
-              <div class="col-md-3"></div>
-              <div class="col-md-3">
-                <i class="fa fa-circle text-info"></i> Taux nbr de PC infectés %
-              </div>
-              <div class="col-md-4">
-                <i class="fa fa-circle text-danger"></i> Objectifs
-              </div>
-              <div class="col-md-4"></div>
-            </div>
-          </div>
-          <hr />
-          <div class="card-stats">
-            <i class="fa fa-check"></i> Data information certified
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bar chart-->
   <div class="row">
@@ -250,8 +202,7 @@
             <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-3">
-                <i class="fa fa-circle text-info"></i> Nombre des reclamations
-                resolu
+                <i class="fa fa-circle text-info"></i> Nombre des PC Infectés
               </div>
               <div class="col-md-4">
                 <i class="fa fa-circle text-danger"></i> Objectifs
