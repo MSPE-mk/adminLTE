@@ -12,13 +12,14 @@ export class HomeComponent implements OnInit {
   tauxPcInfecte: any[];
   dataTable: any[];
   tableHeaders: any[];
+  infected_chart: any[];
   view: any[];
   month_1: any = [];
   month_2: any = [];
   month_3: any = [];
   month_4: any = [];
 
-  // options
+  // lineChart options
   legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
@@ -27,11 +28,31 @@ export class HomeComponent implements OnInit {
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Mois';
-  yAxisLabel: string = 'Taux de PC infectés';
+  yAxisLabel: string = 'Nombre des Posts infectés';
   timeline: boolean = true;
-
   colorScheme = {
     domain: ['#51bcda', '#ef8157', '#aba6a6'],
+  };
+
+  // Barchart options
+  barchartshowXAxis = true;
+  barchartshowYAxis = true;
+  barchartgradient = false;
+  barchartshowLegend = false;
+  barchartshowXAxisLabel = true;
+  barchartxAxisLabel = 'Anneé 2020';
+  barchartshowYAxisLabel = true;
+  barchartyAxisLabel = 'Nombre des Réclamation résolues';
+  barchartcolorScheme = {
+    domain: [
+      '#249fc1',
+      '#249fc1',
+      '#249fc1',
+      '#249fc1',
+      '#249fc1',
+      '#249fc1',
+      '#249fc1',
+    ],
   };
 
   constructor(private infected_pcs: InfectedPcsService) {
@@ -291,6 +312,59 @@ export class HomeComponent implements OnInit {
           },
         ];
 
+        let infection = [
+          {
+            name: 'Jan/20',
+            value: result[0].nb_infected,
+          },
+          {
+            name: 'Feb/20',
+            value: result[1].nb_infected,
+          },
+          {
+            name: 'Marz/20',
+            value: result[2].nb_infected,
+          },
+          {
+            name: 'Apr/20',
+            value: result[3].nb_infected,
+          },
+          {
+            name: 'Mai/20',
+            value: result[4].nb_infected,
+          },
+          {
+            name: 'Jun/20',
+            value: result[5].nb_infected,
+          },
+          {
+            name: 'Jul/20',
+            value: result[6].nb_infected,
+          },
+          {
+            name: 'Aug/20',
+            value: result[7].nb_infected,
+          },
+          {
+            name: 'Sep/20',
+            value: result[8].nb_infected,
+          },
+          {
+            name: 'Okt/20',
+            value: result[9].nb_infected,
+          },
+          {
+            name: 'Nou/20',
+            value: result[10].nb_infected,
+          },
+          {
+            name: 'Dez/20',
+            value: result[11].nb_infected,
+          },
+        ];
+
+        this.infected_chart = infection;
+
         this.tauxPcInfecte = chart;
         this.dataTable = data;
 
@@ -307,5 +381,9 @@ export class HomeComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  barchartOnSelect(event) {
+    console.log(event);
   }
 }

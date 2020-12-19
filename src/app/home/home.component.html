@@ -217,6 +217,56 @@
       </div>
     </div>
   </div>
+
+  <!-- Bar chart-->
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="card card-chart">
+        <div class="card-header">
+          <h5 class="card-title"></h5>
+          <p class="card-category"></p>
+        </div>
+        <div class="card-body">
+          <ngx-charts-bar-vertical
+            (window:resize)="onResize($event)"
+            [view]="view"
+            [scheme]="barchartcolorScheme"
+            [results]="infected_chart"
+            [gradient]="barchartgradient"
+            [xAxis]="barchartshowXAxis"
+            [yAxis]="barchartshowYAxis"
+            [legend]="barchartshowLegend"
+            [showXAxisLabel]="barchartshowXAxisLabel"
+            [showYAxisLabel]="barchartshowYAxisLabel"
+            [xAxisLabel]="barchartxAxisLabel"
+            [yAxisLabel]="barchartyAxisLabel"
+            (select)="barchartOnSelect($event)"
+          >
+          </ngx-charts-bar-vertical>
+          <hr class="objectif" />
+        </div>
+        <div class="card-footer">
+          <div class="chart-legend">
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-3">
+                <i class="fa fa-circle text-info"></i> Nombre des reclamations
+                resolu
+              </div>
+              <div class="col-md-4">
+                <i class="fa fa-circle text-danger"></i> Objectifs
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+          </div>
+          <hr />
+          <div class="card-stats">
+            <i class="fa fa-check"></i> Data information certified
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- footer -->
