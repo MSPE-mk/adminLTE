@@ -402,7 +402,13 @@ export class ReclamationComponent implements OnInit {
         this.nbrReclationResolu = resolved_chart;
 
         this.dataTable = data;
-
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.reclamations.getAllReclamations().subscribe(
+      (result) => {
         let today = new Date();
         let i = today.getMonth();
         let year = today.getFullYear();

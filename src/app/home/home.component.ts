@@ -367,7 +367,13 @@ export class HomeComponent implements OnInit {
 
         this.tauxPcInfecte = chart;
         this.dataTable = data;
-
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.infected_pcs.getAllInfected_pcs().subscribe(
+      (result) => {
         let today = new Date();
         let i = today.getMonth();
         let year = today.getFullYear();
