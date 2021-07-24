@@ -48,6 +48,8 @@ export class AdminComponent implements OnInit {
     this.infected_pcs.getAllInfected_pcs().subscribe(
       (result) => {
         this.data = result;
+        // console.log('--------------');
+        // console.log(result);
       },
       (error) => {
         console.log(error);
