@@ -1,11 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReclamationService {
-  apiURL = 'http://localhost:5000';
+  apiURL = environment.base_url;
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({

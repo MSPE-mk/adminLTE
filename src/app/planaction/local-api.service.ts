@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Action } from './dataClass';
 import { retry, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalApiService {
-  apiURL = 'http://localhost:5000';
+  apiURL = environment.base_url;
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
