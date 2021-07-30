@@ -203,51 +203,51 @@ export class ReclamationComponent implements OnInit {
 
         let not_resolved_chart = [
           {
-            name: 'Jan/20',
+            name: 'Jan/' + res,
             value: result[0].nb_not_resolved,
           },
           {
-            name: 'Feb/20',
+            name: 'Feb/' + res,
             value: result[1].nb_not_resolved,
           },
           {
-            name: 'Marz/20',
+            name: 'Marz/' + res,
             value: result[2].nb_not_resolved,
           },
           {
-            name: 'Apr/20',
+            name: 'Apr/' + res,
             value: result[3].nb_not_resolved,
           },
           {
-            name: 'Mai/20',
+            name: 'Mai/' + res,
             value: result[4].nb_not_resolved,
           },
           {
-            name: 'Jun/20',
+            name: 'Jun/' + res,
             value: result[5].nb_not_resolved,
           },
           {
-            name: 'Jul/20',
+            name: 'Jul/' + res,
             value: result[6].nb_not_resolved,
           },
           {
-            name: 'Aug/20',
+            name: 'Aug/' + res,
             value: result[7].nb_not_resolved,
           },
           {
-            name: 'Sep/20',
+            name: 'Sep/' + res,
             value: result[8].nb_not_resolved,
           },
           {
-            name: 'Okt/20',
+            name: 'Okt/' + res,
             value: result[9].nb_not_resolved,
           },
           {
-            name: 'Nou/20',
+            name: 'Nou/' + res,
             value: result[10].nb_not_resolved,
           },
           {
-            name: 'Dez/20',
+            name: 'Dez/' + res,
             value: result[11].nb_not_resolved,
           },
         ];
@@ -257,51 +257,51 @@ export class ReclamationComponent implements OnInit {
             name: 'Nombre des Réclamation Non résolues',
             series: [
               {
-                name: 'Jan/20',
+                name: 'Jan/' + res,
                 value: result[0].nb_not_resolved,
               },
               {
-                name: 'Feb/20',
+                name: 'Feb/' + res,
                 value: result[1].nb_not_resolved,
               },
               {
-                name: 'Marz/20',
+                name: 'Marz/' + res,
                 value: result[2].nb_not_resolved,
               },
               {
-                name: 'Apr/20',
+                name: 'Apr/' + res,
                 value: result[3].nb_not_resolved,
               },
               {
-                name: 'Mai/20',
+                name: 'Mai/' + res,
                 value: result[4].nb_not_resolved,
               },
               {
-                name: 'Jun/20',
+                name: 'Jun/' + res,
                 value: result[5].nb_not_resolved,
               },
               {
-                name: 'Jul/20',
+                name: 'Jul/' + res,
                 value: result[6].nb_not_resolved,
               },
               {
-                name: 'Aug/20',
+                name: 'Aug/' + res,
                 value: result[7].nb_not_resolved,
               },
               {
-                name: 'Sep/20',
+                name: 'Sep/' + res,
                 value: result[8].nb_not_resolved,
               },
               {
-                name: 'Okt/20',
+                name: 'Okt/' + res,
                 value: result[9].nb_not_resolved,
               },
               {
-                name: 'Nov/20',
+                name: 'Nov/' + res,
                 value: result[10].nb_not_resolved,
               },
               {
-                name: 'Dez/20',
+                name: 'Dez/' + res,
                 value: result[11].nb_not_resolved,
               },
             ],
@@ -311,51 +311,51 @@ export class ReclamationComponent implements OnInit {
             name: 'objectifs',
             series: [
               {
-                name: 'Jan/20',
+                name: 'Jan/' + res,
                 value: result[0].objective,
               },
               {
-                name: 'Feb/20',
+                name: 'Feb/' + res,
                 value: result[1].objective,
               },
               {
-                name: 'Marz/20',
+                name: 'Marz/' + res,
                 value: result[2].objective,
               },
               {
-                name: 'Apr/20',
+                name: 'Apr/' + res,
                 value: result[3].objective,
               },
               {
-                name: 'Mai/20',
+                name: 'Mai/' + res,
                 value: result[4].objective,
               },
               {
-                name: 'Jun/20',
+                name: 'Jun/' + res,
                 value: result[5].objective,
               },
               {
-                name: 'Jul/20',
+                name: 'Jul/' + res,
                 value: result[6].objective,
               },
               {
-                name: 'Aug/20',
+                name: 'Aug/' + res,
                 value: result[7].objective,
               },
               {
-                name: 'Sep/20',
+                name: 'Sep/' + res,
                 value: result[8].objective,
               },
               {
-                name: 'Okt/20',
+                name: 'Okt/' + res,
                 value: result[9].objective,
               },
               {
-                name: 'Nov/20',
+                name: 'Nov/' + res,
                 value: result[10].objective,
               },
               {
-                name: 'Dez/20',
+                name: 'Dez/' + res,
                 value: result[11].objective,
               },
             ],
@@ -364,51 +364,51 @@ export class ReclamationComponent implements OnInit {
             name: 'max',
             series: [
               {
-                name: 'Jan/20',
+                name: 'Jan/' + res,
                 value: 30,
               },
               {
-                name: 'Feb/20',
+                name: 'Feb/' + res,
                 value: 30,
               },
               {
-                name: 'Marz/20',
+                name: 'Marz/' + res,
                 value: 30,
               },
               {
-                name: 'Apr/20',
+                name: 'Apr/' + res,
                 value: 30,
               },
               {
-                name: 'Mai/20',
+                name: 'Mai/' + res,
                 value: 30,
               },
               {
-                name: 'Jun/20',
+                name: 'Jun/' + res,
                 value: 30,
               },
               {
-                name: 'Jul/20',
+                name: 'Jul/' + res,
                 value: 30,
               },
               {
-                name: 'Aug/20',
+                name: 'Aug/' + res,
                 value: 30,
               },
               {
-                name: 'Sep/20',
+                name: 'Sep/' + res,
                 value: 30,
               },
               {
-                name: 'Okt/20',
+                name: 'Okt/' + res,
                 value: 30,
               },
               {
-                name: 'Nov/20',
+                name: 'Nov/' + res,
                 value: 30,
               },
               {
-                name: 'Dez/20',
+                name: 'Dez/' + res,
                 value: 30,
               },
             ],

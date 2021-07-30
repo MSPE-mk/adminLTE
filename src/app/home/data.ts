@@ -52,7 +52,7 @@ export var tauxPcInfecte = [
         value: 0.05,
       },
       {
-        name: 'Dez/20',
+        name: 'Dez/' + res,
         value: 0.05,
       },
     ],

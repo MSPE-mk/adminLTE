@@ -1,53 +1,58 @@
+let today = new Date();
+let actual_year = today.getFullYear();
+let str = '' + actual_year;
+let res = str.substring(2, 4);
+
 export var tauxPcInfecte = [
   {
     name: 'Nombre des Réclamation Non résolues',
     series: [
       {
-        name: 'Jan/20',
+        name: 'Jan/' + res,
         value: 0.05,
       },
       {
-        name: 'Feb/20',
+        name: 'Feb/' + res,
         value: 0.05,
       },
       {
-        name: 'Marz/20',
+        name: 'Marz/' + res,
         value: 0.05,
       },
       {
-        name: 'Apr/20',
+        name: 'Apr/' + res,
         value: 0.05,
       },
       {
-        name: 'Mai/20',
+        name: 'Mai/' + res,
         value: 0.05,
       },
       {
-        name: 'Jun/20',
+        name: 'Jun/' + res,
         value: 0.05,
       },
       {
-        name: 'Jul/20',
+        name: 'Jul/' + res,
         value: 0.05,
       },
       {
-        name: 'Aug/20',
+        name: 'Aug/' + res,
         value: 0.05,
       },
       {
-        name: 'Sep/20',
+        name: 'Sep/' + res,
         value: 0.05,
       },
       {
-        name: 'Okt/20',
+        name: 'Okt/' + res,
         value: 0.05,
       },
       {
-        name: 'Nou/20',
+        name: 'Nou/' + res,
         value: 0.05,
       },
       {
-        name: 'Dez/20',
+        name: 'Dez/' + res,
         value: 0.05,
       },
     ],
@@ -57,51 +62,51 @@ export var tauxPcInfecte = [
     name: 'objectifs',
     series: [
       {
-        name: 'Jan/20',
+        name: 'Jan/' + res,
         value: 0,
       },
       {
-        name: 'Feb/20',
+        name: 'Feb/' + res,
         value: 0,
       },
       {
-        name: 'Marz/20',
+        name: 'Marz/' + res,
         value: 0,
       },
       {
-        name: 'Apr/20',
+        name: 'Apr/' + res,
         value: 0,
       },
       {
-        name: 'Mai/20',
+        name: 'Mai/' + res,
         value: 0,
       },
       {
-        name: 'Jun/20',
+        name: 'Jun/' + res,
         value: 0,
       },
       {
-        name: 'Jul/20',
+        name: 'Jul/' + res,
         value: 0,
       },
       {
-        name: 'Aug/20',
+        name: 'Aug/' + res,
         value: 0,
       },
       {
-        name: 'Sep/20',
+        name: 'Sep/' + res,
         value: 0,
       },
       {
-        name: 'Okt/20',
+        name: 'Okt/' + res,
         value: 0,
       },
       {
-        name: 'Nou/20',
+        name: 'Nou/' + res,
         value: 0,
       },
       {
-        name: 'Dez/20',
+        name: 'Dez/' + res,
         value: 0,
       },
     ],
@@ -110,51 +115,51 @@ export var tauxPcInfecte = [
     name: 'max',
     series: [
       {
-        name: 'Jan/20',
+        name: 'Jan/' + res,
         value: 5,
       },
       {
-        name: 'Feb/20',
+        name: 'Feb/' + res,
         value: 5,
       },
       {
-        name: 'Marz/20',
+        name: 'Marz/' + res,
         value: 5,
       },
       {
-        name: 'Apr/20',
+        name: 'Apr/' + res,
         value: 5,
       },
       {
-        name: 'Mai/20',
+        name: 'Mai/' + res,
         value: 5,
       },
       {
-        name: 'Jun/20',
+        name: 'Jun/' + res,
         value: 5,
       },
       {
-        name: 'Jul/20',
+        name: 'Jul/' + res,
         value: 5,
       },
       {
-        name: 'Aug/20',
+        name: 'Aug/' + res,
         value: 5,
       },
       {
-        name: 'Sep/20',
+        name: 'Sep/' + res,
         value: 5,
       },
       {
-        name: 'Okt/20',
+        name: 'Okt/' + res,
         value: 5,
       },
       {
-        name: 'Nou/20',
+        name: 'Nou/' + res,
         value: 5,
       },
       {
-        name: 'Dez/20',
+        name: 'Dez/' + res,
         value: 5,
       },
     ],
@@ -166,51 +171,51 @@ export var lineChartData = [
     name: 'Nombre des Réclamation Non résolues',
     series: [
       {
-        name: 'Jan/20',
+        name: 'Jan/' + res,
         value: 0,
       },
       {
-        name: 'Feb/20',
+        name: 'Feb/' + res,
         value: 0,
       },
       {
-        name: 'Marz/20',
+        name: 'Marz/' + res,
         value: 0,
       },
       {
-        name: 'Apr/20',
+        name: 'Apr/' + res,
         value: 0,
       },
       {
-        name: 'Mai/20',
+        name: 'Mai/' + res,
         value: 0,
       },
       {
-        name: 'Jun/20',
+        name: 'Jun/' + res,
         value: 0,
       },
       {
-        name: 'Jul/20',
+        name: 'Jul/' + res,
         value: 0,
       },
       {
-        name: 'Aug/20',
+        name: 'Aug/' + res,
         value: 0,
       },
       {
-        name: 'Sep/20',
+        name: 'Sep/' + res,
         value: 0,
       },
       {
-        name: 'Okt/20',
+        name: 'Okt/' + res,
         value: 0,
       },
       {
-        name: 'Nou/20',
+        name: 'Nou/' + res,
         value: 0,
       },
       {
-        name: 'Dez/20',
+        name: 'Dez/' + res,
         value: 0,
       },
     ],
@@ -220,51 +225,51 @@ export var lineChartData = [
     name: 'objectifs',
     series: [
       {
-        name: 'Jan/20',
+        name: 'Jan/' + res,
         value: 0,
       },
       {
-        name: 'Feb/20',
+        name: 'Feb/' + res,
         value: 0,
       },
       {
-        name: 'Marz/20',
+        name: 'Marz/' + res,
         value: 0,
       },
       {
-        name: 'Apr/20',
+        name: 'Apr/' + res,
         value: 0,
       },
       {
-        name: 'Mai/20',
+        name: 'Mai/' + res,
         value: 0,
       },
       {
-        name: 'Jun/20',
+        name: 'Jun/' + res,
         value: 0,
       },
       {
-        name: 'Jul/20',
+        name: 'Jul/' + res,
         value: 0,
       },
       {
-        name: 'Aug/20',
+        name: 'Aug/' + res,
         value: 0,
       },
       {
-        name: 'Sep/20',
+        name: 'Sep/' + res,
         value: 0,
       },
       {
-        name: 'Okt/20',
+        name: 'Okt/' + res,
         value: 0,
       },
       {
-        name: 'Nou/20',
+        name: 'Nou/' + res,
         value: 0,
       },
       {
-        name: 'Dez/20',
+        name: 'Dez/' + res,
         value: 0,
       },
     ],
