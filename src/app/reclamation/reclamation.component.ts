@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclamationService } from '../reclamation.service';
+import { ReclamationService } from '../services/reclamation/reclamation.service';
 import {
   nbrReclationNonResolu,
   nbrReclationResolu,

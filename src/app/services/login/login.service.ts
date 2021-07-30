@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { environment } from 'src/environments/environment';
-import { User } from './user';
+import { User } from '../../model/user/user';
 
 @Injectable({
   providedIn: 'root',

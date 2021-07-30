@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../login.service';
+import { LoginService } from '../services/login/login.service';
 import { ToastrService } from 'ngx-toastr';
 
 import {

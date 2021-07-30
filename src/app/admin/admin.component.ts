@@ -3,8 +3,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { InfectedPcsService } from '../infected-pcs.service';
-import { ReclamationService } from '../reclamation.service';
+import { InfectedPcsService } from '../services/infected-pc/infected-pcs.service';
+import { ReclamationService } from '../services/reclamation/reclamation.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { InfectedPcsService } from '../infected-pcs.service';
+import { InfectedPcsService } from '../services/infected-pc/infected-pcs.service';
 import { tauxPcInfecte, dataTable, tableHeaders } from './data';
 
 import {
