@@ -48,7 +48,7 @@ export class ReclamationComponent implements OnInit {
   barchartgradient = false;
   barchartshowLegend = false;
   barchartshowXAxisLabel = true;
-  barchartxAxisLabel = 'Anneé 2020';
+  barchartxAxisLabel = 'Anneé ' + new Date().getFullYear();
   barchartshowYAxisLabel = true;
   barchartyAxisLabel = 'Nombre des Réclamation résolues';
   barchartcolorScheme = {
@@ -78,7 +78,26 @@ export class ReclamationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reclamations.getReclamation(2020).subscribe(
+    let today = new Date();
+    let i = today.getMonth();
+    let actual_year = today.getFullYear();
+    let str = '' + actual_year;
+    let res = str.substring(2, 4);
+
+    this.reclamations.getAllReclamations().subscribe(
+      (result) => {
+        i = i + (actual_year - 2020) * 12;
+        this.month_1 = result[i - 3];
+        this.month_2 = result[i - 2];
+        this.month_3 = result[i - 1];
+        this.month_4 = result[i];
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.reclamations.getReclamation(actual_year).subscribe(
       (result) => {
         var data = [
           {
@@ -133,51 +152,51 @@ export class ReclamationComponent implements OnInit {
 
         let resolved_chart = [
           {
-            name: 'Jan/20',
+            name: 'Jan/' + res,
             value: result[0].nb_resolved,
           },
           {
-            name: 'Feb/20',
+            name: 'Feb/' + res,
             value: result[1].nb_resolved,
           },
           {
-            name: 'Marz/20',
+            name: 'Marz/' + res,
             value: result[2].nb_resolved,
           },
           {
-            name: 'Apr/20',
+            name: 'Apr/' + res,
             value: result[3].nb_resolved,
           },
           {
-            name: 'Mai/20',
+            name: 'Mai/' + res,
             value: result[4].nb_resolved,
           },
           {
-            name: 'Jun/20',
+            name: 'Jun/' + res,
             value: result[5].nb_resolved,
           },
           {
-            name: 'Jul/20',
+            name: 'Jul/' + res,
             value: result[6].nb_resolved,
           },
           {
-            name: 'Aug/20',
+            name: 'Aug/' + res,
             value: result[7].nb_resolved,
           },
           {
-            name: 'Sep/20',
+            name: 'Sep/' + res,
             value: result[8].nb_resolved,
           },
           {
-            name: 'Okt/20',
+            name: 'Okt/' + res,
             value: result[9].nb_resolved,
           },
           {
-            name: 'Nou/20',
+            name: 'Nou/' + res,
             value: result[10].nb_resolved,
           },
           {
-            name: 'Dez/20',
+            name: 'Dez/' + res,
             value: result[11].nb_resolved,
           },
         ];
@@ -402,21 +421,6 @@ export class ReclamationComponent implements OnInit {
         this.nbrReclationResolu = resolved_chart;
 
         this.dataTable = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    this.reclamations.getAllReclamations().subscribe(
-      (result) => {
-        let today = new Date();
-        let i = today.getMonth();
-        let year = today.getFullYear();
-        i = i + (year - 2020) * 12;
-        this.month_1 = result[i - 3];
-        this.month_2 = result[i - 2];
-        this.month_3 = result[i - 1];
-        this.month_4 = result[i];
       },
       (error) => {
         console.log(error);
