@@ -1,35 +1,17 @@
 <form [formGroup]="calanderForm" (ngSubmit)="choose()">
-  <div
-    style="
+  <div style="
       display: inline-flex;
       margin-bottom: 15px;
       margin-left: 10px;
       padding-top: 35px;
-    "
-  >
-    <label for="start" style="padding-left: 10px; padding-right: 20px"
-      >Date debut:</label
-    >
+    ">
+    <label for="start" style="padding-left: 10px; padding-right: 20px">Date debut:</label>
 
-    <input
-      type="date"
-      id="start"
-      name="trip-start"
-      min="2020-01-01"
-      formControlName="start"
-    />
+    <input type="date" id="start" name="trip-start" min="2020-01-01" formControlName="start" />
 
-    <label for="end" style="padding-left: 120px; padding-right: 20px"
-      >Date fin:</label
-    >
+    <label for="end" style="padding-left: 120px; padding-right: 20px">Date fin:</label>
 
-    <input
-      type="date"
-      id="end"
-      name="trip-end"
-      min="2021-01-01"
-      formControlName="end"
-    />
+    <input type="date" id="end" name="trip-end" min="2021-01-01" formControlName="end" />
     <div style="padding-right: 15px; padding-left: 60px">
       <button mat-flat-button type="submit" color="primary">confirmer</button>
     </div>
@@ -58,10 +40,76 @@
             </thead>
             <tbody>
               <tr *ngFor="let row of dataTable">
-                <td
-                  *ngFor="let column of tableHeaders"
-                  [ngClass]="row['classType']"
-                >
+                <td *ngFor="let column of tableHeaders" [ngClass]="row['classType']">
+                  {{ row[column] }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Data table -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form [formGroup]="reclamationForm" (ngSubmit)="chooseReclamation()">
+  <div style="
+      display: inline-flex;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      padding-top: 35px;
+    ">
+    <label for="reclamation_start" style="padding-left: 10px; padding-right: 20px">Date debut:</label>
+
+    <input type="date" id="reclamation_start" name="trip-start" min="2020-01-01" formControlName="reclamation_start" />
+
+    <label for="reclamation_end" style="padding-left: 120px; padding-right: 20px">Date fin:</label>
+
+    <input type="date" id="reclamation_end" name="trip-end" min="2021-01-01" formControlName="reclamation_end" />
+    <div style="padding-right: 15px; padding-left: 60px">
+      <button mat-flat-button type="submit" color="primary">confirmer</button>
+    </div>
+  </div>
+</form>
+
+<!-- Data Table -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">
+          Le pourcentage des reclamations résolu par rapport au nombre total de reclamations
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th *ngFor="let column of tableHeadersReclamation">
+                <div *ngIf="column != 'rowName'">
+                  {{ column }}
+                </div>
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of dataTableReclamation">
+                <td *ngFor="let column of tableHeadersReclamation" [ngClass]="row['classType']">
                   {{ row[column] }}
                 </td>
               </tr>
