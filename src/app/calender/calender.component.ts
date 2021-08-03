@@ -1324,8 +1324,8 @@ export class CalenderComponent implements OnInit {
       (result) => {
         let info = this.reclamationForm.value;
 
-        const startDate = new Date(info.start);
-        const endDate = new Date(info.end);
+        const startDate = new Date(info.reclamation_start);
+        const endDate = new Date(info.reclamation_end);
         console.log(startDate);
         let startmonth = startDate.getMonth();
         let startyear = startDate.getFullYear();
