@@ -1,5 +1,9 @@
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
+ul {
+  list-style-type: none;
+}
+body {
+  font-family: Verdana, sans-serif;
+}
 
 /* Month header */
 .month {
@@ -38,7 +42,7 @@ body {font-family: Verdana, sans-serif;}
 .weekdays {
   margin: 0;
   padding: 10px 0;
-  background-color:#ddd;
+  background-color: #ddd;
 }
 
 .weekdays li {
@@ -61,7 +65,7 @@ body {font-family: Verdana, sans-serif;}
   width: 13.6%;
   text-align: center;
   margin-bottom: 5px;
-  font-size:12px;
+  font-size: 12px;
   color: #777;
 }
 
@@ -69,15 +73,65 @@ body {font-family: Verdana, sans-serif;}
 .days li .active {
   padding: 5px;
   background: #1a81bc;
-  color: white !important
+  color: white !important;
 }
 
 label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
 }
 
 input,
 label {
-    margin: .4rem 0;
+  margin: 0.4rem 0;
+}
+
+.bg-success {
+  background-color: #6bd09847 !important;
+}
+
+.bg-danger {
+  background-color: #dc354533 !important;
+}
+
+.bg-primary {
+  background-color: #51bcda52 !important;
+}
+
+.objectif {
+  position: absolute;
+  bottom: 167px;
+  border-top: 4px solid #ef8157;
+  width: 88%;
+  left: 6%;
+}
+
+.title {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  line-height: 7px;
+}
+
+.title h5 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.title h6 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  background-color: #3f51b500;
+}
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  color: #212529;
 }
