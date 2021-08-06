@@ -82,6 +82,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('hello');
+
     let today = new Date();
     let i = today.getMonth();
     let actual_year = today.getFullYear();
@@ -167,219 +169,462 @@ export class HomeComponent implements OnInit {
         let str = '' + actual_year;
         let res = str.substring(2, 4);
 
-        let chart = [
-          {
-            name: 'Nombre des Réclamation Non résolues',
-            series: [
-              {
-                name: 'Jan/' + res,
-                value: result[0].nb_infected,
-              },
-              {
-                name: 'Feb/' + res,
-                value: result[1].nb_infected,
-              },
-              {
-                name: 'Marz/' + res,
-                value: result[2].nb_infected,
-              },
-              {
-                name: 'Apr/' + res,
-                value: result[3].nb_infected,
-              },
-              {
-                name: 'Mai/' + res,
-                value: result[4].nb_infected,
-              },
-              {
-                name: 'Jun/' + res,
-                value: result[5].nb_infected,
-              },
-              {
-                name: 'Jul/' + res,
-                value: result[6].nb_infected,
-              },
-              {
-                name: 'Aug/' + res,
-                value: result[7].nb_infected,
-              },
-              {
-                name: 'Sep/' + res,
-                value: result[8].nb_infected,
-              },
-              {
-                name: 'Okt/' + res,
-                value: result[9].nb_infected,
-              },
-              {
-                name: 'Nou/' + res,
-                value: result[10].nb_infected,
-              },
-              {
-                name: 'Dez/' + res,
-                value: result[11].nb_infected,
-              },
-            ],
-          },
+        let chart = [];
+        let infection = [];
+        if (
+          (result[0].nb_infected == 0 || result[0].nb_infected == NaN) &&
+          (result[1].nb_infected == 0 || result[1].nb_infected == NaN) &&
+          (result[2].nb_infected == 0 || result[2].nb_infected == NaN) &&
+          (result[3].nb_infected == 0 || result[3].nb_infected == NaN) &&
+          (result[4].nb_infected == 0 || result[4].nb_infected == NaN) &&
+          (result[5].nb_infected == 0 || result[5].nb_infected == NaN) &&
+          (result[6].nb_infected == 0 || result[6].nb_infected == NaN) &&
+          (result[7].nb_infected == 0 || result[7].nb_infected == NaN) &&
+          (result[8].nb_infected == 0 || result[8].nb_infected == NaN) &&
+          (result[9].nb_infected == 0 || result[9].nb_infected == NaN) &&
+          (result[10].nb_infected == 0 || result[10].nb_infected == NaN) &&
+          (result[11].nb_infected == 0 || result[11].nb_infected == NaN) &&
+          (result[0].objective == 0 || result[0].objective == NaN) &&
+          (result[1].objective == 0 || result[1].objective == NaN) &&
+          (result[2].objective == 0 || result[2].objective == NaN) &&
+          (result[3].objective == 0 || result[3].objective == NaN) &&
+          (result[4].objective == 0 || result[4].objective == NaN) &&
+          (result[5].objective == 0 || result[5].objective == NaN) &&
+          (result[6].objective == 0 || result[6].objective == NaN) &&
+          (result[7].objective == 0 || result[7].objective == NaN) &&
+          (result[8].objective == 0 || result[8].objective == NaN) &&
+          (result[9].objective == 0 || result[9].objective == NaN) &&
+          (result[10].objective == 0 || result[10].objective == NaN) &&
+          (result[11].objective == 0 || result[11].objective == NaN)
+        ) {
+          chart = [
+            {
+              name: 'Nombre des Réclamation Non résolues',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Nou/' + res,
+                  value: 0,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: 0,
+                },
+              ],
+            },
 
-          {
-            name: 'objectifs',
-            series: [
-              {
-                name: 'Jan/' + res,
-                value: result[0].objective,
-              },
-              {
-                name: 'Feb/' + res,
-                value: result[1].objective,
-              },
-              {
-                name: 'Marz/' + res,
-                value: result[2].objective,
-              },
-              {
-                name: 'Apr/' + res,
-                value: result[3].objective,
-              },
-              {
-                name: 'Mai/' + res,
-                value: result[4].objective,
-              },
-              {
-                name: 'Jun/' + res,
-                value: result[5].objective,
-              },
-              {
-                name: 'Jul/' + res,
-                value: result[6].objective,
-              },
-              {
-                name: 'Aug/' + res,
-                value: result[7].objective,
-              },
-              {
-                name: 'Sep/' + res,
-                value: result[8].objective,
-              },
-              {
-                name: 'Okt/' + res,
-                value: result[9].objective,
-              },
-              {
-                name: 'Nou/' + res,
-                value: result[10].objective,
-              },
-              {
-                name: 'Dez/' + res,
-                value: result[11].objective,
-              },
-            ],
-          },
-          {
-            name: 'max',
-            series: [
-              {
-                name: 'Jan/' + res,
-                value: 30,
-              },
-              {
-                name: 'Feb/' + res,
-                value: 30,
-              },
-              {
-                name: 'Marz/' + res,
-                value: 30,
-              },
-              {
-                name: 'Apr/' + res,
-                value: 30,
-              },
-              {
-                name: 'Mai/' + res,
-                value: 30,
-              },
-              {
-                name: 'Jun/' + res,
-                value: 30,
-              },
-              {
-                name: 'Jul/' + res,
-                value: 30,
-              },
-              {
-                name: 'Aug/' + res,
-                value: 30,
-              },
-              {
-                name: 'Sep/' + res,
-                value: 30,
-              },
-              {
-                name: 'Okt/' + res,
-                value: 30,
-              },
-              {
-                name: 'Nou/' + res,
-                value: 30,
-              },
-              {
-                name: 'Dez/' + res,
-                value: 30,
-              },
-            ],
-          },
-        ];
+            {
+              name: 'objectifs',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Nou/' + res,
+                  value: 5,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: 5,
+                },
+              ],
+            },
+            {
+              name: 'max',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Nou/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: 15,
+                },
+              ],
+            },
+          ];
 
-        let infection = [
-          {
-            name: 'Jan/' + res,
-            value: result[0].nb_infected,
-          },
-          {
-            name: 'Feb/' + res,
-            value: result[1].nb_infected,
-          },
-          {
-            name: 'Marz/' + res,
-            value: result[2].nb_infected,
-          },
-          {
-            name: 'Apr/' + res,
-            value: result[3].nb_infected,
-          },
-          {
-            name: 'Mai/' + res,
-            value: result[4].nb_infected,
-          },
-          {
-            name: 'Jun/' + res,
-            value: result[5].nb_infected,
-          },
-          {
-            name: 'Jul/' + res,
-            value: result[6].nb_infected,
-          },
-          {
-            name: 'Aug/' + res,
-            value: result[7].nb_infected,
-          },
-          {
-            name: 'Sep/' + res,
-            value: result[8].nb_infected,
-          },
-          {
-            name: 'Okt/' + res,
-            value: result[9].nb_infected,
-          },
-          {
-            name: 'Nou/' + res,
-            value: result[10].nb_infected,
-          },
-          {
-            name: 'Dez/' + res,
-            value: result[11].nb_infected,
-          },
-        ];
+          infection = [
+            {
+              name: 'Jan/' + res,
+              value: 0,
+            },
+            {
+              name: 'Feb/' + res,
+              value: 0,
+            },
+            {
+              name: 'Marz/' + res,
+              value: 0,
+            },
+            {
+              name: 'Apr/' + res,
+              value: 0,
+            },
+            {
+              name: 'Mai/' + res,
+              value: 0,
+            },
+            {
+              name: 'Jun/' + res,
+              value: 0,
+            },
+            {
+              name: 'Jul/' + res,
+              value: 0,
+            },
+            {
+              name: 'Aug/' + res,
+              value: 0,
+            },
+            {
+              name: 'Sep/' + res,
+              value: 0,
+            },
+            {
+              name: 'Okt/' + res,
+              value: 0,
+            },
+            {
+              name: 'Nou/' + res,
+              value: 0,
+            },
+            {
+              name: 'Dez/' + res,
+              value: 0,
+            },
+          ];
+        } else {
+          chart = [
+            {
+              name: 'Nombre des Réclamation Non résolues',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: result[0].nb_infected,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: result[1].nb_infected,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: result[2].nb_infected,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: result[3].nb_infected,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: result[4].nb_infected,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: result[5].nb_infected,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: result[6].nb_infected,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: result[7].nb_infected,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: result[8].nb_infected,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: result[9].nb_infected,
+                },
+                {
+                  name: 'Nou/' + res,
+                  value: result[10].nb_infected,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: result[11].nb_infected,
+                },
+              ],
+            },
+
+            {
+              name: 'objectifs',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: result[0].objective,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: result[1].objective,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: result[2].objective,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: result[3].objective,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: result[4].objective,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: result[5].objective,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: result[6].objective,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: result[7].objective,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: result[8].objective,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: result[9].objective,
+                },
+                {
+                  name: 'Nou/' + res,
+                  value: result[10].objective,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: result[11].objective,
+                },
+              ],
+            },
+            {
+              name: 'max',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Nou/' + res,
+                  value: 15,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: 15,
+                },
+              ],
+            },
+          ];
+
+          infection = [
+            {
+              name: 'Jan/' + res,
+              value: result[0].nb_infected,
+            },
+            {
+              name: 'Feb/' + res,
+              value: result[1].nb_infected,
+            },
+            {
+              name: 'Marz/' + res,
+              value: result[2].nb_infected,
+            },
+            {
+              name: 'Apr/' + res,
+              value: result[3].nb_infected,
+            },
+            {
+              name: 'Mai/' + res,
+              value: result[4].nb_infected,
+            },
+            {
+              name: 'Jun/' + res,
+              value: result[5].nb_infected,
+            },
+            {
+              name: 'Jul/' + res,
+              value: result[6].nb_infected,
+            },
+            {
+              name: 'Aug/' + res,
+              value: result[7].nb_infected,
+            },
+            {
+              name: 'Sep/' + res,
+              value: result[8].nb_infected,
+            },
+            {
+              name: 'Okt/' + res,
+              value: result[9].nb_infected,
+            },
+            {
+              name: 'Nou/' + res,
+              value: result[10].nb_infected,
+            },
+            {
+              name: 'Dez/' + res,
+              value: result[11].nb_infected,
+            },
+          ];
+        }
 
         this.infected_chart = infection;
 

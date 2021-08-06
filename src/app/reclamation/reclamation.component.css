@@ -13,9 +13,13 @@
 .objectif {
   position: absolute;
   bottom: 167px;
-  border-top: 4px solid #ff0000;
+  border-top: 4px solid #ff0000 !important;
   width: 88%;
   left: 6%;
+}
+
+.objectif-text {
+  color: #ff0000 !important;
 }
 
 .title {

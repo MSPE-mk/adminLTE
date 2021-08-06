@@ -117,12 +117,7 @@
           <div class="stats">
             <i class="fa fa-refresh"></i>
 
-            <button
-              mat-flat-button
-              color="primary"
-              routerLink="/reclam"
-              (click)="exit()"
-            >
+            <button mat-flat-button color="primary" routerLink="/reclam" (click)="exit()">
               {{ month_4.year }}
             </button>
           </div>
@@ -151,10 +146,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let row of dataTable">
-                  <td
-                    *ngFor="let column of tableHeaders"
-                    [ngClass]="row['classType']"
-                  >
+                  <td *ngFor="let column of tableHeaders" [ngClass]="row['classType']">
                     {{ row[column] }}
                   </td>
                 </tr>
@@ -175,21 +167,11 @@
           <p class="card-category"></p>
         </div>
         <div class="card-body">
-          <ngx-charts-bar-vertical
-            (window:resize)="onResize($event)"
-            [view]="view"
-            [scheme]="barchartcolorScheme"
-            [results]="nbrReclationResolu"
-            [gradient]="barchartgradient"
-            [xAxis]="barchartshowXAxis"
-            [yAxis]="barchartshowYAxis"
-            [legend]="barchartshowLegend"
-            [showXAxisLabel]="barchartshowXAxisLabel"
-            [showYAxisLabel]="barchartshowYAxisLabel"
-            [xAxisLabel]="barchartxAxisLabel"
-            [yAxisLabel]="barchartyAxisLabel"
-            (select)="barchartOnSelect($event)"
-          >
+          <ngx-charts-bar-vertical (window:resize)="onResize($event)" [view]="view" [scheme]="barchartcolorScheme"
+            [results]="nbrReclationResolu" [gradient]="barchartgradient" [xAxis]="barchartshowXAxis"
+            [yAxis]="barchartshowYAxis" [legend]="barchartshowLegend" [showXAxisLabel]="barchartshowXAxisLabel"
+            [showYAxisLabel]="barchartshowYAxisLabel" [xAxisLabel]="barchartxAxisLabel"
+            [yAxisLabel]="barchartyAxisLabel" (select)="barchartOnSelect($event)">
           </ngx-charts-bar-vertical>
           <hr class="objectif" />
         </div>
@@ -202,7 +184,7 @@
                 resolu
               </div>
               <div class="col-md-4">
-                <i class="fa fa-circle text-danger"></i> Objectifs
+                <i class="fa fa-circle objectif-text"></i> Objectifs
               </div>
               <div class="col-md-4"></div>
             </div>
