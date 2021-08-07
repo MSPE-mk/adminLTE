@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   xAxisLabel: string = 'Mois';
   yAxisLabel: string = 'Nombre des Posts infectés';
   timeline: boolean = true;
+  tooltip_Disabled_Value: boolean = false;
   colorScheme = {
     domain: ['#51bcda', '#ef8157', '#aba6a6'],
   };
@@ -410,6 +411,8 @@ export class HomeComponent implements OnInit {
               value: 0,
             },
           ];
+
+          this.tooltip_Disabled_Value = true;
         } else {
           chart = [
             {
