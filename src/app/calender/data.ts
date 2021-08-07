@@ -111,59 +111,6 @@ export var tauxPcInfecte = [
       },
     ],
   },
-  {
-    name: 'max',
-    series: [
-      {
-        name: 'Jan/' + res,
-        value: 5,
-      },
-      {
-        name: 'Feb/' + res,
-        value: 5,
-      },
-      {
-        name: 'Marz/' + res,
-        value: 5,
-      },
-      {
-        name: 'Apr/' + res,
-        value: 5,
-      },
-      {
-        name: 'Mai/' + res,
-        value: 5,
-      },
-      {
-        name: 'Jun/' + res,
-        value: 5,
-      },
-      {
-        name: 'Jul/' + res,
-        value: 5,
-      },
-      {
-        name: 'Aug/' + res,
-        value: 5,
-      },
-      {
-        name: 'Sep/' + res,
-        value: 5,
-      },
-      {
-        name: 'Okt/' + res,
-        value: 5,
-      },
-      {
-        name: 'Nou/' + res,
-        value: 5,
-      },
-      {
-        name: 'Dez/' + res,
-        value: 5,
-      },
-    ],
-  },
 ];
 
 export var tableHeaders = [
@@ -351,59 +298,6 @@ export var taux_reclamation = [
       {
         name: 'Dez/' + res,
         value: 0,
-      },
-    ],
-  },
-  {
-    name: 'max',
-    series: [
-      {
-        name: 'Jan/' + res,
-        value: 5,
-      },
-      {
-        name: 'Feb/' + res,
-        value: 5,
-      },
-      {
-        name: 'Marz/' + res,
-        value: 5,
-      },
-      {
-        name: 'Apr/' + res,
-        value: 5,
-      },
-      {
-        name: 'Mai/' + res,
-        value: 5,
-      },
-      {
-        name: 'Jun/' + res,
-        value: 5,
-      },
-      {
-        name: 'Jul/' + res,
-        value: 5,
-      },
-      {
-        name: 'Aug/' + res,
-        value: 5,
-      },
-      {
-        name: 'Sep/' + res,
-        value: 5,
-      },
-      {
-        name: 'Okt/' + res,
-        value: 5,
-      },
-      {
-        name: 'Nou/' + res,
-        value: 5,
-      },
-      {
-        name: 'Dez/' + res,
-        value: 5,
       },
     ],
   },

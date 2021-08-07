@@ -150,270 +150,474 @@ export class ReclamationComponent implements OnInit {
           },
         ];
 
-        let resolved_chart = [
-          {
-            name: 'Jan/' + res,
-            value: result[0].nb_resolved,
-          },
-          {
-            name: 'Feb/' + res,
-            value: result[1].nb_resolved,
-          },
-          {
-            name: 'Marz/' + res,
-            value: result[2].nb_resolved,
-          },
-          {
-            name: 'Apr/' + res,
-            value: result[3].nb_resolved,
-          },
-          {
-            name: 'Mai/' + res,
-            value: result[4].nb_resolved,
-          },
-          {
-            name: 'Jun/' + res,
-            value: result[5].nb_resolved,
-          },
-          {
-            name: 'Jul/' + res,
-            value: result[6].nb_resolved,
-          },
-          {
-            name: 'Aug/' + res,
-            value: result[7].nb_resolved,
-          },
-          {
-            name: 'Sep/' + res,
-            value: result[8].nb_resolved,
-          },
-          {
-            name: 'Okt/' + res,
-            value: result[9].nb_resolved,
-          },
-          {
-            name: 'Nou/' + res,
-            value: result[10].nb_resolved,
-          },
-          {
-            name: 'Dez/' + res,
-            value: result[11].nb_resolved,
-          },
-        ];
+        let infected_chart = [];
+        let resolved_chart = [];
 
-        let not_resolved_chart = [
-          {
-            name: 'Jan/' + res,
-            value: result[0].nb_not_resolved,
-          },
-          {
-            name: 'Feb/' + res,
-            value: result[1].nb_not_resolved,
-          },
-          {
-            name: 'Marz/' + res,
-            value: result[2].nb_not_resolved,
-          },
-          {
-            name: 'Apr/' + res,
-            value: result[3].nb_not_resolved,
-          },
-          {
-            name: 'Mai/' + res,
-            value: result[4].nb_not_resolved,
-          },
-          {
-            name: 'Jun/' + res,
-            value: result[5].nb_not_resolved,
-          },
-          {
-            name: 'Jul/' + res,
-            value: result[6].nb_not_resolved,
-          },
-          {
-            name: 'Aug/' + res,
-            value: result[7].nb_not_resolved,
-          },
-          {
-            name: 'Sep/' + res,
-            value: result[8].nb_not_resolved,
-          },
-          {
-            name: 'Okt/' + res,
-            value: result[9].nb_not_resolved,
-          },
-          {
-            name: 'Nou/' + res,
-            value: result[10].nb_not_resolved,
-          },
-          {
-            name: 'Dez/' + res,
-            value: result[11].nb_not_resolved,
-          },
-        ];
+        let not_resolved_chart = [];
+        if (
+          result[0].nb_resolved == 0 &&
+          result[1].nb_resolved == 0 &&
+          result[2].nb_resolved == 0 &&
+          result[3].nb_resolved == 0 &&
+          result[4].nb_resolved == 0 &&
+          result[5].nb_resolved == 0 &&
+          result[6].nb_resolved == 0 &&
+          result[7].nb_resolved == 0 &&
+          result[8].nb_resolved == 0 &&
+          result[9].nb_resolved == 0 &&
+          result[10].nb_resolved == 0 &&
+          result[11].nb_resolved == 0 &&
+          result[0].nb_not_resolved == 0 &&
+          result[1].nb_not_resolved == 0 &&
+          result[2].nb_not_resolved == 0 &&
+          result[3].nb_not_resolved == 0 &&
+          result[4].nb_not_resolved == 0 &&
+          result[5].nb_not_resolved == 0 &&
+          result[6].nb_not_resolved == 0 &&
+          result[7].nb_not_resolved == 0 &&
+          result[8].nb_not_resolved == 0 &&
+          result[9].nb_not_resolved == 0 &&
+          result[10].nb_not_resolved == 0 &&
+          result[11].nb_not_resolved == 0 &&
+          result[0].objective == 0 &&
+          result[1].objective == 0 &&
+          result[2].objective == 0 &&
+          result[3].objective == 0 &&
+          result[4].objective == 0 &&
+          result[5].objective == 0 &&
+          result[6].objective == 0 &&
+          result[7].objective == 0 &&
+          result[8].objective == 0 &&
+          result[9].objective == 0 &&
+          result[10].objective == 0 &&
+          result[11].objective == 0
+        ) {
+          resolved_chart = [
+            {
+              name: 'Jan/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Feb/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Marz/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Apr/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Mai/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Jun/' + res,
 
-        let infected_chart = [
-          {
-            name: 'Nombre des Réclamation Non résolues',
-            series: [
-              {
-                name: 'Jan/' + res,
-                value: result[0].nb_not_resolved,
-              },
-              {
-                name: 'Feb/' + res,
-                value: result[1].nb_not_resolved,
-              },
-              {
-                name: 'Marz/' + res,
-                value: result[2].nb_not_resolved,
-              },
-              {
-                name: 'Apr/' + res,
-                value: result[3].nb_not_resolved,
-              },
-              {
-                name: 'Mai/' + res,
-                value: result[4].nb_not_resolved,
-              },
-              {
-                name: 'Jun/' + res,
-                value: result[5].nb_not_resolved,
-              },
-              {
-                name: 'Jul/' + res,
-                value: result[6].nb_not_resolved,
-              },
-              {
-                name: 'Aug/' + res,
-                value: result[7].nb_not_resolved,
-              },
-              {
-                name: 'Sep/' + res,
-                value: result[8].nb_not_resolved,
-              },
-              {
-                name: 'Okt/' + res,
-                value: result[9].nb_not_resolved,
-              },
-              {
-                name: 'Nov/' + res,
-                value: result[10].nb_not_resolved,
-              },
-              {
-                name: 'Dez/' + res,
-                value: result[11].nb_not_resolved,
-              },
-            ],
-          },
+              value: 0.01,
+            },
+            {
+              name: 'Jul/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Aug/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Sep/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Okt/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Nou/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Dez/' + res,
+              value: 0.01,
+            },
+          ];
 
-          {
-            name: 'objectifs',
-            series: [
-              {
-                name: 'Jan/' + res,
-                value: result[0].objective,
-              },
-              {
-                name: 'Feb/' + res,
-                value: result[1].objective,
-              },
-              {
-                name: 'Marz/' + res,
-                value: result[2].objective,
-              },
-              {
-                name: 'Apr/' + res,
-                value: result[3].objective,
-              },
-              {
-                name: 'Mai/' + res,
-                value: result[4].objective,
-              },
-              {
-                name: 'Jun/' + res,
-                value: result[5].objective,
-              },
-              {
-                name: 'Jul/' + res,
-                value: result[6].objective,
-              },
-              {
-                name: 'Aug/' + res,
-                value: result[7].objective,
-              },
-              {
-                name: 'Sep/' + res,
-                value: result[8].objective,
-              },
-              {
-                name: 'Okt/' + res,
-                value: result[9].objective,
-              },
-              {
-                name: 'Nov/' + res,
-                value: result[10].objective,
-              },
-              {
-                name: 'Dez/' + res,
-                value: result[11].objective,
-              },
-            ],
-          },
-          {
-            name: 'max',
-            series: [
-              {
-                name: 'Jan/' + res,
-                value: 30,
-              },
-              {
-                name: 'Feb/' + res,
-                value: 30,
-              },
-              {
-                name: 'Marz/' + res,
-                value: 30,
-              },
-              {
-                name: 'Apr/' + res,
-                value: 30,
-              },
-              {
-                name: 'Mai/' + res,
-                value: 30,
-              },
-              {
-                name: 'Jun/' + res,
-                value: 30,
-              },
-              {
-                name: 'Jul/' + res,
-                value: 30,
-              },
-              {
-                name: 'Aug/' + res,
-                value: 30,
-              },
-              {
-                name: 'Sep/' + res,
-                value: 30,
-              },
-              {
-                name: 'Okt/' + res,
-                value: 30,
-              },
-              {
-                name: 'Nov/' + res,
-                value: 30,
-              },
-              {
-                name: 'Dez/' + res,
-                value: 30,
-              },
-            ],
-          },
-        ];
+          not_resolved_chart = [
+            {
+              name: 'Jan/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Feb/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Marz/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Apr/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Mai/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Jun/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Jul/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Aug/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Sep/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Okt/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Nou/' + res,
+              value: 0.01,
+            },
+            {
+              name: 'Dez/' + res,
+              value: 0.01,
+            },
+          ];
+
+          infected_chart = [
+            {
+              name: 'Nombre des Réclamation Non résolues',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Nov/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: 0.01,
+                },
+              ],
+            },
+
+            {
+              name: 'objectifs',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Nov/' + res,
+                  value: 0.01,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: 0.01,
+                },
+              ],
+            },
+          ];
+        } else {
+          resolved_chart = [
+            {
+              name: 'Jan/' + res,
+              value: result[0].nb_resolved,
+            },
+            {
+              name: 'Feb/' + res,
+              value: result[1].nb_resolved,
+            },
+            {
+              name: 'Marz/' + res,
+              value: result[2].nb_resolved,
+            },
+            {
+              name: 'Apr/' + res,
+              value: result[3].nb_resolved,
+            },
+            {
+              name: 'Mai/' + res,
+              value: result[4].nb_resolved,
+            },
+            {
+              name: 'Jun/' + res,
+
+              value: result[5].nb_resolved,
+            },
+            {
+              name: 'Jul/' + res,
+              value: result[6].nb_resolved,
+            },
+            {
+              name: 'Aug/' + res,
+              value: result[7].nb_resolved,
+            },
+            {
+              name: 'Sep/' + res,
+              value: result[8].nb_resolved,
+            },
+            {
+              name: 'Okt/' + res,
+              value: result[9].nb_resolved,
+            },
+            {
+              name: 'Nou/' + res,
+              value: result[10].nb_resolved,
+            },
+            {
+              name: 'Dez/' + res,
+              value: result[11].nb_resolved,
+            },
+          ];
+
+          not_resolved_chart = [
+            {
+              name: 'Jan/' + res,
+              value: result[0].nb_not_resolved,
+            },
+            {
+              name: 'Feb/' + res,
+              value: result[1].nb_not_resolved,
+            },
+            {
+              name: 'Marz/' + res,
+              value: result[2].nb_not_resolved,
+            },
+            {
+              name: 'Apr/' + res,
+              value: result[3].nb_not_resolved,
+            },
+            {
+              name: 'Mai/' + res,
+              value: result[4].nb_not_resolved,
+            },
+            {
+              name: 'Jun/' + res,
+              value: result[5].nb_not_resolved,
+            },
+            {
+              name: 'Jul/' + res,
+              value: result[6].nb_not_resolved,
+            },
+            {
+              name: 'Aug/' + res,
+              value: result[7].nb_not_resolved,
+            },
+            {
+              name: 'Sep/' + res,
+              value: result[8].nb_not_resolved,
+            },
+            {
+              name: 'Okt/' + res,
+              value: result[9].nb_not_resolved,
+            },
+            {
+              name: 'Nou/' + res,
+              value: result[10].nb_not_resolved,
+            },
+            {
+              name: 'Dez/' + res,
+              value: result[11].nb_not_resolved,
+            },
+          ];
+
+          infected_chart = [
+            {
+              name: 'Nombre des Réclamation Non résolues',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: result[0].nb_not_resolved,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: result[1].nb_not_resolved,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: result[2].nb_not_resolved,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: result[3].nb_not_resolved,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: result[4].nb_not_resolved,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: result[5].nb_not_resolved,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: result[6].nb_not_resolved,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: result[7].nb_not_resolved,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: result[8].nb_not_resolved,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: result[9].nb_not_resolved,
+                },
+                {
+                  name: 'Nov/' + res,
+                  value: result[10].nb_not_resolved,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: result[11].nb_not_resolved,
+                },
+              ],
+            },
+
+            {
+              name: 'objectifs',
+              series: [
+                {
+                  name: 'Jan/' + res,
+                  value: result[0].objective,
+                },
+                {
+                  name: 'Feb/' + res,
+                  value: result[1].objective,
+                },
+                {
+                  name: 'Marz/' + res,
+                  value: result[2].objective,
+                },
+                {
+                  name: 'Apr/' + res,
+                  value: result[3].objective,
+                },
+                {
+                  name: 'Mai/' + res,
+                  value: result[4].objective,
+                },
+                {
+                  name: 'Jun/' + res,
+                  value: result[5].objective,
+                },
+                {
+                  name: 'Jul/' + res,
+                  value: result[6].objective,
+                },
+                {
+                  name: 'Aug/' + res,
+                  value: result[7].objective,
+                },
+                {
+                  name: 'Sep/' + res,
+                  value: result[8].objective,
+                },
+                {
+                  name: 'Okt/' + res,
+                  value: result[9].objective,
+                },
+                {
+                  name: 'Nov/' + res,
+                  value: result[10].objective,
+                },
+                {
+                  name: 'Dez/' + res,
+                  value: result[11].objective,
+                },
+              ],
+            },
+          ];
+        }
 
         this.tauxPcInfecte = infected_chart;
 

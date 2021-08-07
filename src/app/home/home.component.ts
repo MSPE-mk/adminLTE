@@ -203,51 +203,51 @@ export class HomeComponent implements OnInit {
               series: [
                 {
                   name: 'Jan/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Feb/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Marz/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Apr/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Mai/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Jun/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Jul/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Aug/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Sep/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Okt/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Nou/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
                 {
                   name: 'Dez/' + res,
-                  value: 0,
+                  value: 0.01,
                 },
               ],
             },
@@ -305,109 +305,56 @@ export class HomeComponent implements OnInit {
                 },
               ],
             },
-            {
-              name: 'max',
-              series: [
-                {
-                  name: 'Jan/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Feb/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Marz/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Apr/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Mai/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Jun/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Jul/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Aug/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Sep/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Okt/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Nou/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Dez/' + res,
-                  value: 15,
-                },
-              ],
-            },
           ];
 
           infection = [
             {
               name: 'Jan/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Feb/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Marz/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Apr/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Mai/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Jun/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Jul/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Aug/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Sep/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Okt/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Nou/' + res,
-              value: 0,
+              value: 0.01,
             },
             {
               name: 'Dez/' + res,
-              value: 0,
+              value: 0.01,
             },
           ];
         } else {
@@ -516,59 +463,6 @@ export class HomeComponent implements OnInit {
                 {
                   name: 'Dez/' + res,
                   value: result[11].objective,
-                },
-              ],
-            },
-            {
-              name: 'max',
-              series: [
-                {
-                  name: 'Jan/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Feb/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Marz/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Apr/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Mai/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Jun/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Jul/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Aug/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Sep/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Okt/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Nou/' + res,
-                  value: 15,
-                },
-                {
-                  name: 'Dez/' + res,
-                  value: 15,
                 },
               ],
             },
